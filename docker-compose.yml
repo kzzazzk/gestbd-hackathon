@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres_db
+    image: postgres:16
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: userPSQL
+      POSTGRES_PASSWORD: passPSQL
+      POSTGRES_DB: demoDB
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+          - gestbd_net
+
+  pgadmin: # postgres:5432 or localhost:5432 
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    depends_on:
+      - postgres
+    volumes:
+      - ./datapga:/tmpdata
+      - ./dataexample:/var/lib/pgadmin/storage
+    networks:
+          - gestbd_net
+      
+networks:
+    gestbd_net:
+      external: true
+      
