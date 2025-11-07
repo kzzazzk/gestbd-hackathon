@@ -6,7 +6,7 @@ from postgredb_structure import sql_script
 conn = psycopg2.connect(
     host="localhost",
     port=5432,
-    database="postgres",  # connect to default admin DB
+    database="demoDB",  # connect to default admin DB
     user="userPSQL",
     password="passPSQL"
 )
