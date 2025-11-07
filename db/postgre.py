@@ -1,44 +1,44 @@
 import psycopg2
+from psycopg2 import sql
 from postgredb_structure import sql_script
 
-# Dtoas de conexion
+# --- Step 1: Create database if missing ---
+conn = psycopg2.connect(
+    host="localhost",
+    port=5432,
+    database="postgres",  # connect to default admin DB
+    user="userPSQL",
+    password="passPSQL"
+)
+conn.autocommit = True
+cur = conn.cursor()
+
+cur.execute("SELECT 1 FROM pg_database WHERE datname = 'demoDB';")
+exists = cur.fetchone()
+
+if not exists:
+    cur.execute(sql.SQL("CREATE DATABASE demoDB;"))
+    print("✅ Database 'demoDB' created.")
+else:
+    print("ℹ️ Database 'demoDB' already exists.")
+
+cur.close()
+conn.close()
+
+# --- Step 2: Connect to demoDB and create tables ---
 conexion = psycopg2.connect(
     host="localhost",
     port=5432,
-    database="midb",
-    user="user",
-    password="password"
+    database="demoDB",
+    user="userPSQL",
+    password="passPSQL"
 )
 
-# Crea un cursor
 cursor = conexion.cursor()
-print("✅ Conexión exitosa a PostgreSQL")
-
-# Ejecuta una consulta de prueba
-cursor.execute("SELECT version();")
-version = cursor.fetchone()
-print("Versión de PostgreSQL:", version)
-
-# Añadir las si no estan creadas
 cursor.execute(sql_script)
 conexion.commit()
 
-# Listar tablas existentes
-cursor.execute("""
-    SELECT table_name
-    FROM information_schema.tables
-    WHERE table_schema = 'public';
-""")
+print("✅ Tables created or verified successfully.")
 
-tablas = cursor.fetchall()
-print("📋 Tablas actuales:")
-for t in tablas:
-    print("  -", t[0])
-
-# Cierra conexión
 cursor.close()
 conexion.close()
-
-#########################################################################################################################
-#########################################################################################################################
-
