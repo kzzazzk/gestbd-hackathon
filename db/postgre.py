@@ -34,8 +34,8 @@ connection.commit()
 print("✅ Tables created or verified successfully.")
 
 # --- Step 3: Uploda the tables with the data ---
-
-dir_cache = '../cache'
+script_dir = os.path.dirname(os.path.abspath(__file__))
+dir_cache = os.path.join(script_dir, '../cache')
 file_tematica= os.path.join(dir_cache, 'tematica.csv')
 file_tematica_contenida = os.path.join(dir_cache, 'tematica_contenida.csv')
 file_obra = os.path.join(dir_cache, 'obra.csv')
