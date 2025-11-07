@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 """
 OpenAlex (pyalex, Topics v2) -> CSVs
-Filtros (como en tu captura):
+Filtros:
 - is_oa=true
 - has_pdf_url=true
 - has_oa_accepted_or_published_version=true
 - language=en
-- Field = Computer Science (primary_topic.field.id)
-- Subfield = Artificial Intelligence (primary_topic.subfield.id)
+- primary_topic.field.id = Computer Science
+- primary_topic.subfield.id = Artificial Intelligence
 - Keywords = OR de lenguajes
+- Jerarquía = Physical Sciences -> CS -> AI -> topics
 """
 
 import pandas as pd
 from dateutil import parser as dtparser
-from pyalex import Works, Topics, Concepts, config
+from pyalex import Works, Topics, Concepts, config # Concepts ya no se usa, pero se mantiene por si acaso
 
 # -------- Config --------
 config.email = "tu_correo@ejemplo.com"   # pon tu email
@@ -39,7 +40,7 @@ def parse_date_safe(s):
         return str(s)
 
 def topic_id(name: str, level: str):
-    """Devuelve el id de Topics v2 (level: 'field'|'subfield')."""
+    """Devuelve el id de Topics v2 (level: 'domain'|'field'|'subfield')."""
     items = Topics().search(name).get(per_page=20)
     # exacto nombre + nivel
     for t in items or []:
@@ -50,75 +51,107 @@ def topic_id(name: str, level: str):
         if t.get("level") == level:
             return t["id"].split("/")[-1]
 
-def fetch_concepts_with_ancestors(concept_ids, batch=50):
-    """Catálogo de conceptos + jerarquía para tematica/tematica_contenida."""
+def fetch_topics_hierarchy(topic_ids_from_works, base_topic_ids):
+    """
+    Catálogo de Topics v2 + jerarquía.
+    Construye la jerarquía desde los tópicos (L1-L2) encontrados en las obras
+    y asegura que la jerarquía base (Dominio > Campo > Subcampo) esté presente.
+    """
     names, edges = {}, set()
-    norm = [cid.split("/")[-1] for cid in concept_ids if cid]
-    for i in range(0, len(norm), batch):
-        chunk = norm[i:i+batch]
-        items = Concepts().filter(openalex_id="|".join(chunk)).get(per_page=len(chunk))
-        for c in items:
-            cid = c["id"].split("/")[-1]
-            names[cid] = c.get("display_name") or cid
-            for anc in (c.get("ancestors") or []):
-                if anc.get("id"):
-                    aid = anc["id"].split("/")[-1]
-                    names[aid] = anc.get("display_name") or aid
-                    edges.add((aid, cid))
+    
+    # 1. Asegurar que la jerarquía base esté
+    edges.add((base_topic_ids["domain"], base_topic_ids["field"]))
+    edges.add((base_topic_ids["field"], base_topic_ids["subfield"]))
+    
+    # 2. Juntar todos los IDs: los de las obras + los base
+    all_topic_ids = set(topic_ids_from_works)
+    all_topic_ids.update(base_topic_ids.values())
+    norm_ids = [tid.split("/")[-1] for tid in all_topic_ids if tid]
+    
+    # 3. Consultar la API de Topics en lotes
+    batch = 50
+    for i in range(0, len(norm_ids), batch):
+        chunk = norm_ids[i:i+batch]
+        try:
+            items = Topics().filter(openalex_id="|".join(chunk)).get(per_page=len(chunk))
+        except Exception as e:
+            print(f"Error en lote de Topics: {e}")
+            continue
+            
+        for t in items:
+            tid = t["id"].split("/")[-1]
+            names[tid] = t.get("display_name") or tid
+            
+            # Añadir nombres de ancestros (por si no estaban en el lote)
+            if t.get("domain") and t["domain"].get("id"):
+                names[t["domain"]["id"].split("/")[-1]] = t["domain"].get("display_name")
+            if t.get("field") and t["field"].get("id"):
+                names[t["field"]["id"].split("/")[-1]] = t["field"].get("display_name")
+            if t.get("subfield") and t["subfield"].get("id"):
+                names[t["subfield"]["id"].split("/")[-1]] = t["subfield"].get("display_name")
+
+            # 4. Conectar tópicos individuales (L1-L2) a su subcampo (AI)
+            if t.get("level") in ('topic', 'subtopic') and t.get("subfield") and t["subfield"].get("id"):
+                subfield_id = t["subfield"]["id"].split("/")[-1]
+                # Solo conectar si su padre es el subcampo de IA que buscamos
+                if subfield_id == base_topic_ids["subfield"]:
+                    edges.add((subfield_id, tid))
+                    
     return names, edges
 
 # -------- Descarga (filtros servidor) --------
-def download_works(n_max=10000):
-    cs_field_id = topic_id("Computer Science", "field")
-    ai_subfield_id = topic_id("Artificial Intelligence", "subfield")
-
+def download_works(n_max=10000, field_id=None, subfield_id=None):
     keywords = [
         '"C programming language"', '"Java Programming Language"', "JavaScript", "Rust",
         "HTML", "SQL", "Scala", "Swift", "Java", "Dart", "Perl", "MATLAB", "Lisp",
         "Haskell", "COBOL", "Prolog", "Fortran", "Python",
     ]
     search_query = " OR ".join(keywords)
+    
+    # Usar un diccionario para filtros con puntos
+    filters_dict = {
+        "is_oa": "true",
+        "has_pdf_url": "true",
+        "has_oa_accepted_or_published_version": "true",
+        "language": "en",
+    }
+    
+    # Añadir filtros de tópicos si se proveen
+    if field_id:
+        filters_dict["primary_topic.field.id"] = field_id
+    if subfield_id:
+        filters_dict["primary_topic.subfield.id"] = subfield_id
 
     w = (
         Works()
         .search(search_query)
-        .filter(
-            is_oa="true",
-            has_pdf_url="true",
-            has_oa_accepted_or_published_version="true",
-            language="en",
-            primary_topic_field_id=cs_field_id,       # ✅ válido
-            primary_topic_subfield_id=ai_subfield_id  # ✅ válido
-        )
+        .filter(**filters_dict) # <- Se usa el desempaquetado (**)
     )
 
     results = []
+    print(f"  Paginando obras con filtros: {filters_dict}")
     for page in w.paginate(per_page=200, n_max=n_max):
         results.extend(page)
     return results
 
 # -------- Construcción de DataFrames --------
-def build_dataframes(works, include_hierarchy=True):
-    # conceptos + jerarquía
-    concept_ids = set()
+def build_dataframes(works, base_topic_ids):
+    # 1. Usar 'topics' (v2) en lugar de 'concepts' (v1)
+    topic_ids = set()
     for w in works:
-        for c in (w.get("concepts") or []):
-            if c.get("id"):
-                concept_ids.add(c["id"])
+        for t in (w.get("topics") or []): # <- CAMBIO AQUÍ
+            if t.get("id"):
+                topic_ids.add(t["id"])
 
-    if include_hierarchy and concept_ids:
-        concept_names, edges = fetch_concepts_with_ancestors(concept_ids)
-    else:
-        concept_names, edges = {}, set()
-        for w in works:
-            for c in (w.get("concepts") or []):
-                if c.get("id"):
-                    cid = c["id"].split("/")[-1]
-                    concept_names[cid] = c.get("display_name") or cid
+    # 2. Llamar a la nueva función de jerarquía de Topics v2
+    print(f"  Encontrados {len(topic_ids)} tópicos (v2) únicos en las obras.")
+    print("  Construyendo jerarquía (Topics v2)...")
+    topic_names, edges = fetch_topics_hierarchy(topic_ids, base_topic_ids)
+    print(f"  Total {len(topic_names)} tópicos en el mapa, {len(edges)} relaciones.")
 
     # tematica
     tematica_map, tematica_rows = {}, []
-    for i, (cid, name) in enumerate(sorted(concept_names.items()), start=1):
+    for i, (cid, name) in enumerate(sorted(topic_names.items()), start=1):
         tematica_map[cid] = i
         tematica_rows.append({"id": i, "nombre_campo": name})
     tematica_df = pd.DataFrame(tematica_rows, columns=["id", "nombre_campo"])
@@ -130,12 +163,11 @@ def build_dataframes(works, include_hierarchy=True):
         title = (w.get("title") or "").strip()
         abstract = decompress_abstract(w.get("abstract_inverted_index")) if w.get("abstract_inverted_index") else (w.get("abstract") or None)
 
-        # concepto con mayor score -> tematica_id
-        concepts = w.get("concepts") or []
-        primary = max(concepts, key=lambda c: c.get("score", 0)) if concepts else None
+        # 3. Usar 'primary_topic' para el ID de temática
+        primary_topic = w.get("primary_topic")
         tematica_id = None
-        if primary and primary.get("id"):
-            tematica_id = tematica_map.get(primary["id"].split("/")[-1])
+        if primary_topic and primary_topic.get("id"):
+            tematica_id = tematica_map.get(primary_topic["id"].split("/")[-1])
 
         doi = w.get("doi")
         if doi:
@@ -153,7 +185,7 @@ def build_dataframes(works, include_hierarchy=True):
             "idioma": (w.get("language") or "").lower() or None,
             "num_citas": int(w.get("cited_by_count") or 0),
             "fwci": None,
-            "tematica_id": tematica_id,
+            "tematica_id": tematica_id, # <- CAMBIO AQUÍ
         })
 
     obra_df = pd.DataFrame(
@@ -174,12 +206,33 @@ def build_dataframes(works, include_hierarchy=True):
 
 # -------- Main --------
 if __name__ == "__main__":
-    print("🔍 Descargando con primary_topic_field_id + primary_topic_subfield_id…")
-    works = download_works(n_max=10000)
+    print("🔍 Buscando IDs de Tópicos (v2)…")
+    # 1. Obtener los IDs de la jerarquía base
+    domain_id = topic_id("Physical Sciences", "domain")
+    field_id = topic_id("Computer Science", "field")
+    subfield_id = topic_id("Artificial Intelligence", "subfield")
+    
+    if not (domain_id and field_id and subfield_id):
+        print("Error: No se pudieron encontrar los IDs de tópicos base. Saliendo.")
+        exit()
+
+    base_topic_ids = {
+        "domain": domain_id,
+        "field": field_id,
+        "subfield": subfield_id
+    }
+    print(f"  - Dominio: {domain_id} (Physical Sciences)")
+    print(f"  - Campo: {field_id} (Computer Science)")
+    print(f"  - Subcampo: {subfield_id} (Artificial Intelligence)")
+
+    print("🔍 Descargando obras (filtrando por Campo y Subcampo)…")
+    # 2. Pasar los IDs para filtrar
+    works = download_works(n_max=10000, field_id=field_id, subfield_id=subfield_id)
     print(f"➡️ Obras descargadas: {len(works)}")
 
-    print("🧱 Construyendo DataFrames…")
-    dfs = build_dataframes(works, include_hierarchy=True)
+    print("🧱 Construyendo DataFrames (usando Topics v2)…")
+    # 3. Pasar los IDs para construir la jerarquía
+    dfs = build_dataframes(works, base_topic_ids=base_topic_ids)
 
     print("💾 Exportando CSVs…")
     dfs["tematica"].to_csv("tematica.csv", index=False, encoding="utf-8")
