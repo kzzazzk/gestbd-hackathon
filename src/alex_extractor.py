@@ -1,242 +1,178 @@
-# -*- coding: utf-8 -*-
-"""
-OpenAlex (pyalex, Topics v2) -> CSVs
-Filtros:
-- is_oa=true
-- has_pdf_url=true
-- has_oa_accepted_or_published_version=true
-- language=en
-- primary_topic.field.id = Computer Science
-- primary_topic.subfield.id = Artificial Intelligence
-- Keywords = OR de lenguajes
-- Jerarquía = Physical Sciences -> CS -> AI -> topics
-"""
+import requests
+import csv
+import time
+import os
 
-import pandas as pd
-from dateutil import parser as dtparser
-from pyalex import Works, Topics, Concepts, config # Concepts ya no se usa, pero se mantiene por si acaso
+BASE_URL = "https://api.openalex.org/works"
+PER_PAGE = 200
+KEYWORDS = [
+    "python","c-programming-language","javascript","java","java-programming-language",
+    "sql","dart","swift","cobol","fortran","matlab","prolog","lisp","haskell","rust","perl",
+    "scala","html","html5"
+]
+SUBFIELD_ID = "subfields/1702"
+LANGUAGE = "languages/en"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # go up one level from src/
+CACHE_DIR = os.path.join(BASE_DIR, "cache")
 
-# -------- Config --------
-config.email = "tu_correo@ejemplo.com"   # pon tu email
+CSV_OBRA = os.path.join(CACHE_DIR, "obra.csv")
+CSV_TEMATICA = os.path.join(CACHE_DIR, "tematica.csv")
+CSV_TEMATICA_CONTENIDA = os.path.join(CACHE_DIR, "tematica_contenida.csv")
 
-# -------- Utilidades --------
-def decompress_abstract(inv_idx):
-    if not inv_idx:
-        return None
-    pos, maxpos = {}, -1
-    for w, idxs in inv_idx.items():
-        for i in idxs:
-            pos[i] = w
-            if i > maxpos:
-                maxpos = i
-    return " ".join(pos.get(i, "") for i in range(maxpos + 1)).strip() or None
+os.makedirs(CACHE_DIR, exist_ok=True)
 
-def parse_date_safe(s):
-    if not s:
-        return None
-    try:
-        return dtparser.parse(s).date().isoformat()
-    except Exception:
-        return str(s)
+BASE_TOPICS = ["Physical Sciences", "Computer Science", "Artificial Intelligence"]
 
-def topic_id(name: str, level: str):
-    """Devuelve el id de Topics v2 (level: 'domain'|'field'|'subfield')."""
-    items = Topics().search(name).get(per_page=20)
-    # exacto nombre + nivel
-    for t in items or []:
-        if (t.get("display_name") or "").lower() == name.lower() and t.get("level") == level:
-            return t["id"].split("/")[-1]
-    # si no exacto, primero con ese nivel
-    for t in items or []:
-        if t.get("level") == level:
-            return t["id"].split("/")[-1]
+def reconstruct_abstract(abstract_inverted_index):
+    if not abstract_inverted_index or not isinstance(abstract_inverted_index, dict):
+        return ""
+    position_map = {}
+    for word, positions in abstract_inverted_index.items():
+        for pos in positions:
+            position_map[pos] = word
+    return " ".join(position_map[pos] for pos in sorted(position_map.keys()))
 
-def fetch_topics_hierarchy(topic_ids_from_works, base_topic_ids):
-    """
-    Catálogo de Topics v2 + jerarquía.
-    Construye la jerarquía desde los tópicos (L1-L2) encontrados en las obras
-    y asegura que la jerarquía base (Dominio > Campo > Subcampo) esté presente.
-    """
-    names, edges = {}, set()
-    
-    # 1. Asegurar que la jerarquía base esté
-    edges.add((base_topic_ids["domain"], base_topic_ids["field"]))
-    edges.add((base_topic_ids["field"], base_topic_ids["subfield"]))
-    
-    # 2. Juntar todos los IDs: los de las obras + los base
-    all_topic_ids = set(topic_ids_from_works)
-    all_topic_ids.update(base_topic_ids.values())
-    norm_ids = [tid.split("/")[-1] for tid in all_topic_ids if tid]
-    
-    # 3. Consultar la API de Topics en lotes
-    batch = 50
-    for i in range(0, len(norm_ids), batch):
-        chunk = norm_ids[i:i+batch]
+def fetch_page(url, params, max_retries=5):
+    retries = 0
+    while retries < max_retries:
         try:
-            items = Topics().filter(openalex_id="|".join(chunk)).get(per_page=len(chunk))
+            response = requests.get(url, params=params, timeout=30)
+            if response.status_code == 200:
+                return response.json()
+            print(f"Warning: Bad response {response.status_code}, retrying...")
         except Exception as e:
-            print(f"Error en lote de Topics: {e}")
-            continue
-            
-        for t in items:
-            tid = t["id"].split("/")[-1]
-            names[tid] = t.get("display_name") or tid
-            
-            # Añadir nombres de ancestros (por si no estaban en el lote)
-            if t.get("domain") and t["domain"].get("id"):
-                names[t["domain"]["id"].split("/")[-1]] = t["domain"].get("display_name")
-            if t.get("field") and t["field"].get("id"):
-                names[t["field"]["id"].split("/")[-1]] = t["field"].get("display_name")
-            if t.get("subfield") and t["subfield"].get("id"):
-                names[t["subfield"]["id"].split("/")[-1]] = t["subfield"].get("display_name")
+            print(f"Warning: Exception during request: {e}")
+        retries += 1
+        time.sleep(2 ** retries)
+    print(f"Error: Failed to fetch page after {max_retries} retries.")
+    return None
 
-            # 4. Conectar tópicos individuales (L1-L2) a su subcampo (AI)
-            if t.get("level") in ('topic', 'subtopic') and t.get("subfield") and t["subfield"].get("id"):
-                subfield_id = t["subfield"]["id"].split("/")[-1]
-                # Solo conectar si su padre es el subcampo de IA que buscamos
-                if subfield_id == base_topic_ids["subfield"]:
-                    edges.add((subfield_id, tid))
-                    
-    return names, edges
+def initialize_csv_files():
+    os.makedirs(os.path.dirname(CSV_OBRA), exist_ok=True)
+    with open(CSV_OBRA, "w", newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(["id","direccion_fuente","titulo","abstract","fecha_publicacion",
+                         "idioma","num_citas","fwci","tematica_id"])
+    print(f"Initialized '{CSV_OBRA}' for writing works.")
 
-# -------- Descarga (filtros servidor) --------
-def download_works(n_max=10000, field_id=None, subfield_id=None):
-    keywords = [
-        '"C programming language"', '"Java Programming Language"', "JavaScript", "Rust",
-        "HTML", "SQL", "Scala", "Swift", "Java", "Dart", "Perl", "MATLAB", "Lisp",
-        "Haskell", "COBOL", "Prolog", "Fortran", "Python",
+def fetch_all_works():
+    tematica_map = {}
+    next_tematica_id = 1
+    obra_id = 1
+    page = 1
+    total_results = None
+
+    while True:
+        params = {
+            "page": page,
+            "per_page": PER_PAGE,
+            "filter": f"open_access.is_oa:true,has_content.pdf:true,primary_topic.subfield.id:{SUBFIELD_ID},best_oa_location.is_accepted:true,language:{LANGUAGE},keywords.id:{'|'.join(KEYWORDS)}",
+            "sort": "cited_by_count:desc"
+        }
+        data = fetch_page(BASE_URL, params)
+        if not data or "results" not in data:
+            print(f"No data returned for page {page}, stopping.")
+            break
+
+        works = data["results"]
+        if total_results is None:
+            total_results = data.get("meta", {}).get("count", 0)
+            print(f"Total results to fetch (approximate): {total_results}")
+
+        print(f"Fetched page {page} with {len(works)} works.")
+
+        with open(CSV_OBRA, "a", newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            for work in works:
+                pdf_url = work.get("best_oa_location", {}).get("pdf_url")
+                if not pdf_url:
+                    continue
+                titulo = work.get("title", "")
+                abstract = reconstruct_abstract(work.get("abstract_inverted_index"))
+                fecha_publicacion = work.get("publication_date", "")
+                idioma = work.get("language", LANGUAGE)
+                num_citas = work.get("cited_by_count", 0)
+                fwci = work.get("fwci", "")
+                primary_topic = work.get("primary_topic")
+                if not primary_topic:
+                    continue
+                topic_name = primary_topic.get("display_name", "Unknown Topic")
+                if topic_name not in tematica_map:
+                    tematica_map[topic_name] = next_tematica_id
+                    next_tematica_id += 1
+                tematica_id = tematica_map[topic_name]
+                writer.writerow([obra_id, pdf_url, titulo, abstract, fecha_publicacion,
+                                 idioma, num_citas, fwci, tematica_id])
+                obra_id += 1
+
+        if page * PER_PAGE >= total_results or not works:
+            break
+        page += 1
+
+    print(f"Finished fetching all works. Total works saved: {obra_id-1}")
+    return tematica_map
+
+def save_tematica_csv(tematica_map):
+    os.makedirs(os.path.dirname(CSV_TEMATICA), exist_ok=True)
+    with open(CSV_TEMATICA, "w", newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow(["id","nombre_campo"])
+        for topic_name, topic_id in tematica_map.items():
+            writer.writerow([topic_id, topic_name])
+    print(f"Saved '{CSV_TEMATICA}' with {len(tematica_map)} topics.")
+
+def update_tematica_and_generate_contenida():
+    if not os.path.exists(CSV_TEMATICA):
+        raise FileNotFoundError(f"{CSV_TEMATICA} not found.")
+
+    tematicas = {}
+    rows = []
+    with open(CSV_TEMATICA, newline='', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            row["id"] = int(row["id"])
+            rows.append(row)
+            tematicas[row["nombre_campo"].strip()] = row["id"]
+
+    max_id = max(r["id"] for r in rows)
+    for topic in BASE_TOPICS:
+        if topic not in tematicas:
+            max_id += 1
+            tematicas[topic] = max_id
+            rows.append({"id": max_id, "nombre_campo": topic})
+            print(f"Added base topic '{topic}' with id={max_id}")
+
+    with open(CSV_TEMATICA, "w", newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=["id", "nombre_campo"])
+        writer.writeheader()
+        writer.writerows(rows)
+
+    relaciones = [
+        {"id_padre": tematicas["Physical Sciences"], "id_hijo": tematicas["Computer Science"]},
+        {"id_padre": tematicas["Computer Science"], "id_hijo": tematicas["Artificial Intelligence"]}
     ]
-    search_query = " OR ".join(keywords)
-    
-    # Usar un diccionario para filtros con puntos
-    filters_dict = {
-        "is_oa": "true",
-        "has_pdf_url": "true",
-        "has_oa_accepted_or_published_version": "true",
-        "language": "en",
-    }
-    
-    # Añadir filtros de tópicos si se proveen
-    if field_id:
-        filters_dict["primary_topic.field.id"] = field_id
-    if subfield_id:
-        filters_dict["primary_topic.subfield.id"] = subfield_id
+    ai_id = tematicas["Artificial Intelligence"]
+    for nombre, id_ in tematicas.items():
+        if nombre not in BASE_TOPICS:
+            relaciones.append({"id_padre": ai_id, "id_hijo": id_})
+    relaciones = [{"id_padre": p, "id_hijo": h} for p, h in {(r["id_padre"], r["id_hijo"]) for r in relaciones}]
 
-    w = (
-        Works()
-        .search(search_query)
-        .filter(**filters_dict) # <- Se usa el desempaquetado (**)
-    )
+    os.makedirs(os.path.dirname(CSV_TEMATICA_CONTENIDA), exist_ok=True)
+    with open(CSV_TEMATICA_CONTENIDA, "w", newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=["id_padre", "id_hijo"])
+        writer.writeheader()
+        writer.writerows(relaciones)
 
-    results = []
-    print(f"  Paginando obras con filtros: {filters_dict}")
-    for page in w.paginate(per_page=200, n_max=n_max):
-        results.extend(page)
-    return results
+    print(f"'{CSV_TEMATICA}' updated with {len(rows)} topics.")
+    print(f"'{CSV_TEMATICA_CONTENIDA}' generated with {len(relaciones)} relations.")
 
-# -------- Construcción de DataFrames --------
-def build_dataframes(works, base_topic_ids):
-    # 1. Usar 'topics' (v2) en lugar de 'concepts' (v1)
-    topic_ids = set()
-    for w in works:
-        for t in (w.get("topics") or []): # <- CAMBIO AQUÍ
-            if t.get("id"):
-                topic_ids.add(t["id"])
+def main():
+    print("Starting OpenAlex fetch process...")
+    initialize_csv_files()
+    tematica_map = fetch_all_works()
+    save_tematica_csv(tematica_map)
+    update_tematica_and_generate_contenida()
+    print("Finished fetching and processing all works and topics.")
 
-    # 2. Llamar a la nueva función de jerarquía de Topics v2
-    print(f"  Encontrados {len(topic_ids)} tópicos (v2) únicos en las obras.")
-    print("  Construyendo jerarquía (Topics v2)...")
-    topic_names, edges = fetch_topics_hierarchy(topic_ids, base_topic_ids)
-    print(f"  Total {len(topic_names)} tópicos en el mapa, {len(edges)} relaciones.")
-
-    # tematica
-    tematica_map, tematica_rows = {}, []
-    for i, (cid, name) in enumerate(sorted(topic_names.items()), start=1):
-        tematica_map[cid] = i
-        tematica_rows.append({"id": i, "nombre_campo": name})
-    tematica_df = pd.DataFrame(tematica_rows, columns=["id", "nombre_campo"])
-
-    # obra
-    obra_rows = []
-    for i, w in enumerate(works, start=1):
-        openalex_id = w.get("id")
-        title = (w.get("title") or "").strip()
-        abstract = decompress_abstract(w.get("abstract_inverted_index")) if w.get("abstract_inverted_index") else (w.get("abstract") or None)
-
-        # 3. Usar 'primary_topic' para el ID de temática
-        primary_topic = w.get("primary_topic")
-        tematica_id = None
-        if primary_topic and primary_topic.get("id"):
-            tematica_id = tematica_map.get(primary_topic["id"].split("/")[-1])
-
-        doi = w.get("doi")
-        if doi:
-            direccion = f"https://doi.org/{doi.split('/')[-1]}"
-        else:
-            pl = w.get("primary_location") or {}
-            direccion = pl.get("landing_page_url") or (w.get("best_oa_location") or {}).get("landing_page_url") or openalex_id
-
-        obra_rows.append({
-            "id": i,
-            "direccion_fuente": direccion or "",
-            "titulo": title,
-            "abstract": abstract,
-            "fecha_publicacion": parse_date_safe(w.get("publication_date")) or str(w.get("publication_year") or ""),
-            "idioma": (w.get("language") or "").lower() or None,
-            "num_citas": int(w.get("cited_by_count") or 0),
-            "fwci": None,
-            "tematica_id": tematica_id, # <- CAMBIO AQUÍ
-        })
-
-    obra_df = pd.DataFrame(
-        obra_rows,
-        columns=["id","direccion_fuente","titulo","abstract","fecha_publicacion","idioma","num_citas","fwci","tematica_id"]
-    )
-
-    # tematica_contenida
-    tcont_rows = []
-    for parent, child in sorted(edges):
-        p = tematica_map.get(parent)
-        h = tematica_map.get(child)
-        if p and h and p != h:
-            tcont_rows.append({"tematica_padre_id": p, "tematica_hijo_id": h})
-    tematica_contenida_df = pd.DataFrame(tcont_rows, columns=["tematica_padre_id","tematica_hijo_id"]).drop_duplicates()
-
-    return {"tematica": tematica_df, "obra": obra_df, "tematica_contenida": tematica_contenida_df}
-
-# -------- Main --------
 if __name__ == "__main__":
-    print("🔍 Buscando IDs de Tópicos (v2)…")
-    # 1. Obtener los IDs de la jerarquía base
-    domain_id = topic_id("Physical Sciences", "domain")
-    field_id = topic_id("Computer Science", "field")
-    subfield_id = topic_id("Artificial Intelligence", "subfield")
-    
-    if not (domain_id and field_id and subfield_id):
-        print("Error: No se pudieron encontrar los IDs de tópicos base. Saliendo.")
-        exit()
-
-    base_topic_ids = {
-        "domain": domain_id,
-        "field": field_id,
-        "subfield": subfield_id
-    }
-    print(f"  - Dominio: {domain_id} (Physical Sciences)")
-    print(f"  - Campo: {field_id} (Computer Science)")
-    print(f"  - Subcampo: {subfield_id} (Artificial Intelligence)")
-
-    print("🔍 Descargando obras (filtrando por Campo y Subcampo)…")
-    # 2. Pasar los IDs para filtrar
-    works = download_works(n_max=10000, field_id=field_id, subfield_id=subfield_id)
-    print(f"➡️ Obras descargadas: {len(works)}")
-
-    print("🧱 Construyendo DataFrames (usando Topics v2)…")
-    # 3. Pasar los IDs para construir la jerarquía
-    dfs = build_dataframes(works, base_topic_ids=base_topic_ids)
-
-    print("💾 Exportando CSVs…")
-    dfs["tematica"].to_csv("tematica.csv", index=False, encoding="utf-8")
-    dfs["obra"].to_csv("obra.csv", index=False, encoding="utf-8")
-    dfs["tematica_contenida"].to_csv("tematica_contenida.csv", index=False, encoding="utf-8")
-
-    print("✅ Listo: tematica.csv, obra.csv, tematica_contenida.csv")
+    main()
