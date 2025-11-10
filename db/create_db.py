@@ -9,8 +9,7 @@ DB_PARAMS = {
     "password": "passPSQL"
 }
 
-sql_script = """
-CREATE TABLE IF NOT EXISTS tematica (
+sql_script = """CREATE TABLE IF NOT EXISTS tematica (
     id SERIAL PRIMARY KEY,
     nombre_campo TEXT NOT NULL
 );
@@ -18,12 +17,13 @@ CREATE TABLE IF NOT EXISTS tematica (
 CREATE TABLE IF NOT EXISTS tecnologia (
     id SERIAL PRIMARY KEY,
     nombre TEXT NOT NULL,
-    tipo TEXT NOT NULL,
+    tipo TEXT,
     version TEXT
 );
 
 CREATE TABLE IF NOT EXISTS obra (
     id SERIAL PRIMARY KEY,
+    doi TEXT UNIQUE,  -- NEW
     direccion_fuente TEXT NOT NULL,
     titulo TEXT NOT NULL,
     abstract TEXT,

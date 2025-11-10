@@ -32,27 +32,29 @@ def reconstruct_abstract(abstract_inverted_index):
             position_map[pos] = word
     return " ".join(position_map[pos] for pos in sorted(position_map.keys()))
 
-def fetch_page(url, params, max_retries=5):
+def fetch_page(url, params, max_retries=5, delay_base=2):
     retries = 0
     while retries < max_retries:
         try:
             response = requests.get(url, params=params, timeout=30)
             if response.status_code == 200:
                 return response.json()
-            print(f"Warning: Bad response {response.status_code}, retrying...")
+            print(f"⚠️ Warning: Bad response {response.status_code}, retrying...")
         except Exception as e:
-            print(f"Warning: Exception during request: {e}")
+            print(f"⚠️ Warning: Exception during request: {e}")
         retries += 1
-        time.sleep(2 ** retries)
-    print(f"Error: Failed to fetch page after {max_retries} retries.")
+        time.sleep(delay_base ** retries)
+    print(f"❌ Error: Failed to fetch page after {max_retries} retries.")
     return None
 
 def initialize_csv_files():
     os.makedirs(os.path.dirname(CSV_OBRA), exist_ok=True)
     with open(CSV_OBRA, "w", newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(["id","direccion_fuente","titulo","abstract","fecha_publicacion",
-                         "idioma","num_citas","fwci","tematica_id"])
+        writer.writerow([
+            "id","direccion_fuente","titulo","abstract","fecha_publicacion",
+            "idioma","num_citas","fwci","tematica_id","doi"
+        ])
     print(f"Initialized '{CSV_OBRA}' for writing works.")
 
 def fetch_all_works():
@@ -84,9 +86,14 @@ def fetch_all_works():
         with open(CSV_OBRA, "a", newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             for work in works:
+                # --- PDF URL ---
                 pdf_url = work.get("best_oa_location", {}).get("pdf_url")
                 if not pdf_url:
                     continue
+
+                # --- DOI ---
+                doi = work.get("doi", "")
+
                 titulo = work.get("title", "")
                 abstract = reconstruct_abstract(work.get("abstract_inverted_index"))
                 fecha_publicacion = work.get("publication_date", "")
@@ -101,8 +108,11 @@ def fetch_all_works():
                     tematica_map[topic_name] = next_tematica_id
                     next_tematica_id += 1
                 tematica_id = tematica_map[topic_name]
-                writer.writerow([obra_id, pdf_url, titulo, abstract, fecha_publicacion,
-                                 idioma, num_citas, fwci, tematica_id])
+
+                writer.writerow([
+                    obra_id, pdf_url, titulo, abstract, fecha_publicacion,
+                    idioma, num_citas, fwci, tematica_id, doi
+                ])
                 obra_id += 1
 
         if page * PER_PAGE >= total_results or not works:
