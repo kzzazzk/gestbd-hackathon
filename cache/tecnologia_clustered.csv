@@ -1,539 +1,539 @@
 id,nombre,descripcion,tecnologia_nueva
-1,Python,general-purpose programming language,10
-2,R,programming language for statistical analysis,33
-3,C++,general-purpose programming language,10
-4,Java,object-oriented programming language,65
-5,MATLAB,numerical computing environment,18
-6,JavaScript,text-based open standard designed for human-readable data interchange,29
-7,Perl,interpreted programming language first released in 1987,12
-8,Lua,lightweight programming language,12
-9,SQL,"relational database language that allows to extract from data tables a series of records with selection, sorting and computation criteria, or to update, delete or add records",19
-10,C,chemical element with symbol C and atomic number 6; common element of all known life,28
-11,Fortran,general-purpose programming language,10
-12,C#,multi-paradigm (object-oriented) programming language,65
-13,Visual Basic,legacy programming language by Microsoft,55
-14,ML,country in West Africa,60
-15,Modula-3,programming language,12
-16,Hoc,"team sport played on ice using sticks, skates, and a puck",89
-17,Lisp,functional programming language based on the lambda calculus,37
+1,Python,general-purpose programming language,35
+2,R,programming language for statistical analysis,55
+3,C++,general-purpose programming language,35
+4,Java,object-oriented programming language,79
+5,MATLAB,numerical computing environment,120
+6,JavaScript,text-based open standard designed for human-readable data interchange,19
+7,Perl,interpreted programming language first released in 1987,197
+8,Lua,lightweight programming language,2
+9,SQL,"relational database language that allows to extract from data tables a series of records with selection, sorting and computation criteria, or to update, delete or add records",17
+10,C,chemical element with symbol C and atomic number 6; common element of all known life,154
+11,Fortran,general-purpose programming language,35
+12,C#,multi-paradigm (object-oriented) programming language,79
+13,Visual Basic,legacy programming language by Microsoft,198
+14,ML,country in West Africa,176
+15,Modula-3,programming language,2
+16,Hoc,"team sport played on ice using sticks, skates, and a puck",95
+17,Lisp,functional programming language based on the lambda calculus,27
 18,SemQL,,-1
-19,Standard ML,programming language,12
-20,Scheme,dialect of the Lisp programming language,67
-21,COBOL,programming language with English-like syntax,12
-22,Pico,male given name,16
-23,Haskell,purely functional programming language,37
+19,Standard ML,programming language,2
+20,Scheme,dialect of the Lisp programming language,4
+21,COBOL,programming language with English-like syntax,177
+22,Pico,male given name,1
+23,Haskell,purely functional programming language,189
 24,MetaOCaml,,-1
-25,OCaml,extension of the Caml programming language,10
-26,Prolog,programming language that uses first order logic,73
-27,Octave,male given name,16
-28,ActionScript,object-oriented programming language,65
-29,Clojure,dialect of the Lisp programming language,67
-30,Common Lisp,ANSI-standardized dialect of Lisp,21
-31,E,one of the four cardinal directions,40
-32,Erlang,programming language,12
-33,Go,state in the Central-West Region of Brazil,60
-34,PHP,scripting language focused on web development,64
-35,Rebol,programming language designed by Carl Sassenrath,12
-36,Ruby,female given name,7
-37,Scala,family name,4
-38,Cayenne,commune and capital city of French Guiana,69
+25,OCaml,extension of the Caml programming language,105
+26,Prolog,programming language that uses first order logic,0
+27,Octave,male given name,1
+28,ActionScript,object-oriented programming language,79
+29,Clojure,dialect of the Lisp programming language,4
+30,Common Lisp,ANSI-standardized dialect of Lisp,188
+31,E,one of the four cardinal directions,96
+32,Erlang,programming language,2
+33,Go,state in the Central-West Region of Brazil,45
+34,PHP,scripting language focused on web development,61
+35,Rebol,programming language designed by Carl Sassenrath,114
+36,Ruby,female given name,6
+37,Scala,family name,5
+38,Cayenne,commune and capital city of French Guiana,121
 39,Flow-Caml,,-1
-40,JFlow,Indonesian rapper,60
-41,Jif,file format,62
-42,Java-K,species of plant,8
+40,JFlow,Indonesian rapper,68
+41,Jif,file format,43
+42,Java-K,species of plant,185
 43,Eqlog,,-1
-44,FOOPS,Code for FOOPS! the OEG FAIR ontologies validator,68
-45,FP,complexity class,70
-46,OBJ,grammatical case,31
-47,OBJ2,programming language,12
-48,Koka,"city in Shiga Prefecture, Japan",54
+44,FOOPS,Code for FOOPS! the OEG FAIR ontologies validator,153
+45,FP,complexity class,199
+46,OBJ,grammatical case,41
+47,OBJ2,programming language,2
+48,Koka,"city in Shiga Prefecture, Japan",147
 49,JVML,,-1
-50,Pascal,male given name,16
-51,SML,US record label; imprint of Sony Music Entertainment US Latin LLC,38
-52,STAL,family name,4
-53,TAL,unisex given name,27
-54,Julia,female given name,7
-55,Matlab,numerical computing environment,18
-56,Gofer,TCP/IP application layer protocol,91
-57,SAS,"flag-carrier airline of Denmark, Norway and Sweden",58
-58,Scratch,programming language learning environment,12
-59,Cecil,male given name,16
-60,Eiffel,programming language,12
-61,Caml,protein-coding gene in the species Homo sapiens,6
-62,CeML,association,3
-63,Epic,American record label,38
+50,Pascal,male given name,1
+51,SML,US record label; imprint of Sony Music Entertainment US Latin LLC,18
+52,STAL,family name,5
+53,TAL,unisex given name,26
+54,Julia,female given name,6
+55,Matlab,numerical computing environment,120
+56,Gofer,TCP/IP application layer protocol,75
+57,SAS,"flag-carrier airline of Denmark, Norway and Sweden",136
+58,Scratch,programming language learning environment,2
+59,Cecil,male given name,1
+60,Eiffel,programming language,2
+61,Caml,protein-coding gene in the species Homo sapiens,13
+62,CeML,association,88
+63,Epic,American record label,18
 64,FCMC,,-1
-65,Facile,2018 song by SCH,45
-66,ID,island country in Southeast Asia and Oceania,5
-67,LML,programming language,12
-68,Miranda,female given name,7
-69,Multilisp,"functional programming language and dialect of Scheme,",37
-70,Opal,female given name,7
-71,RUFL,family name,4
-72,Sisal,species of plant,8
-73,Stoffel,family name,4
+65,Facile,2018 song by SCH,14
+66,ID,island country in Southeast Asia and Oceania,175
+67,LML,programming language,2
+68,Miranda,female given name,6
+69,Multilisp,"functional programming language and dialect of Scheme,",189
+70,Opal,female given name,6
+71,RUFL,family name,5
+72,Sisal,species of plant,185
+73,Stoffel,family name,5
 74,Trafola,,-1
-75,Java Bytecode,instruction set of the Java virtual machine,15
-76,Typed Assembly Language,specific type of assembly language,15
-77,InterLisp,dialect of the Lisp programming language,67
+75,Java Bytecode,instruction set of the Java virtual machine,140
+76,Typed Assembly Language,specific type of assembly language,36
+77,InterLisp,dialect of the Lisp programming language,4
 78,POST-Prolog,,-1
 79,Prolog2,,-1
-80,BASIC-PLUS,BASIC dialect,67
-81,FORTRAN,general-purpose programming language,10
-82,ProbLog,family of gnathostomulids,53
-83,Clean,programming language,12
-84,F#,Microsoft programming language,55
-85,MSIL,programming language,12
-86,Managed C++,now-deprecated set of language extensions for C++,36
-87,VB,legacy programming language by Microsoft,55
-88,Rust,memory-safe programming language without garbage collection,2
+80,BASIC-PLUS,BASIC dialect,159
+81,FORTRAN,general-purpose programming language,35
+82,ProbLog,family of gnathostomulids,58
+83,Clean,programming language,2
+84,F#,Microsoft programming language,94
+85,MSIL,programming language,2
+86,Managed C++,now-deprecated set of language extensions for C++,170
+87,VB,legacy programming language by Microsoft,198
+88,Rust,memory-safe programming language without garbage collection,172
 89,Lilac,,-1
-90,SPSS,statistical software suite,33
+90,SPSS,statistical software suite,55
 91,F⋆,,-1
-92,Groovy,2022 video game developed by Michael Menendez,97
+92,Groovy,2022 video game developed by Michael Menendez,163
 93,SmallEiffel,,-1
-94,STG,11th level entity in the taxonomy of the Alps according to the International Standardized Mountain Subdivision of the Alps (SOIUSA),52
-95,LPG,mammalian proteins found in Homo sapiens,6
-96,PROLOG,programming language that uses first order logic,73
-97,Datalog,declarative logic programming language,73
-98,Dyna,given name,26
-99,ICL,"public research university located in London, United Kingdom",51
-100,PRISM,2013 album by Katy Perry,45
+94,STG,11th level entity in the taxonomy of the Alps according to the International Standardized Mountain Subdivision of the Alps (SOIUSA),97
+95,LPG,mammalian proteins found in Homo sapiens,13
+96,PROLOG,programming language that uses first order logic,0
+97,Datalog,declarative logic programming language,139
+98,Dyna,given name,42
+99,ICL,"public research university located in London, United Kingdom",52
+100,PRISM,2013 album by Katy Perry,89
 101,aProbLog,,-1
 102,Mixwell,,-1
-103,RL,2015 video game,63
-104,Refal,functional programming language oriented toward symbolic computations,37
-105,Spec#,programming language with specification language features that extends the capabilities of the C# programming language,55
-106,Cython,programming language compatible with Python,14
-107,Assembly,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,15
+103,RL,2015 video game,7
+104,Refal,functional programming language oriented toward symbolic computations,189
+105,Spec#,programming language with specification language features that extends the capabilities of the C# programming language,167
+106,Cython,programming language compatible with Python,184
+107,Assembly,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,36
 108,CakeML,,-1
-109,Racket,"a coercive, fraudulent, extortionary, or otherwise illegal coordinated scheme",3
-110,Smalltalk,programming language,12
-111,XAK,video game series,9
-112,Curry,family name,4
-113,SNOBOL4,programming language tailored to complex pattern matching and text manipulation,12
-114,PL/SQL,"One of the technologies in Oracle Database, a programming language that combines SQL syntax",19
+109,Racket,"a coercive, fraudulent, extortionary, or otherwise illegal coordinated scheme",51
+110,Smalltalk,programming language,2
+111,XAK,video game series,85
+112,Curry,family name,5
+113,SNOBOL4,programming language tailored to complex pattern matching and text manipulation,191
+114,PL/SQL,"One of the technologies in Oracle Database, a programming language that combines SQL syntax",81
 115,Unix Shell Scripting,,-1
 116,2P-Kt,,-1
-117,AKL,language spoken in the province of Aklan on the island of Panay in the Philippines,74
-118,Algol-W,programming language based on a proposal for ALGOL X,66
+117,AKL,language spoken in the province of Aklan on the island of Panay in the Philippines,174
+118,Algol-W,programming language based on a proposal for ALGOL X,122
 119,Andorra Kernel Language,,-1
 120,Andorra Prolog,,-1
-121,CHIP,given name,26
-122,Concurrent Prolog,programming language derived from Prolog,1
-123,Godel,family name,4
-124,Kotlin,general-purpose programming language derived from Java,10
-125,LIFE,American magazine published 1883-2000,20
-126,Lambda Prolog,"logic programming language featuring polymorphic typing, modular programming",17
-127,Logtalk,object-oriented logic programming language that extends and leverages the Prolog language,1
-128,Mercury,automobile marque of the Ford Motor Company,86
-129,Oz,country in Oceania,5
-130,Parlog,programming language,12
-131,Picat,family name,4
+121,CHIP,given name,42
+122,Concurrent Prolog,programming language derived from Prolog,67
+123,Godel,family name,5
+124,Kotlin,general-purpose programming language derived from Java,35
+125,LIFE,American magazine published 1883-2000,119
+126,Lambda Prolog,"logic programming language featuring polymorphic typing, modular programming",25
+127,Logtalk,object-oriented logic programming language that extends and leverages the Prolog language,67
+128,Mercury,automobile marque of the Ford Motor Company,92
+129,Oz,country in Oceania,3
+130,Parlog,programming language,2
+131,Picat,family name,5
 132,RackLog,,-1
-133,TypeScript,"programming language, superset of JavaScript that compiles to JavaScript",48
-134,Dafny,programming language,12
+133,TypeScript,"programming language, superset of JavaScript that compiles to JavaScript",83
+134,Dafny,programming language,2
 135,λML_i,,-1
-136,Objective Caml,extension of the Caml programming language,10
-137,Maple,family name,4
+136,Objective Caml,extension of the Caml programming language,105
+137,Maple,family name,5
 138,AProlog,,-1
-139,Elf,family name,4
-140,TYPOL,"system of descriptive information for an arrangement or division of objects into groups based on characteristics, which the objects have in common",98
+139,Elf,family name,5
+140,TYPOL,"system of descriptive information for an arrangement or division of objects into groups based on characteristics, which the objects have in common",62
 141,iProlog,,-1
-142,mini-ML,scientific article published in January 1980,20
-143,Java Card,Smart card,49
-144,Assembly Language,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,15
-145,BASIC,"programming language for beginners, mainly using familiar English words or abbreviations of them",12
-146,Shell Scripting,"script written for the shell, or command line interpreter, of an operating system",64
-147,Coq,chemical compound,28
-148,CAML,protein-coding gene in the species Homo sapiens,6
-149,GOAL,idea of the future or result that a person or group wants to achieve,59
-150,Gwendolen,female given name,7
-151,Ada,female given name,7
-152,GWENDOLEN,female given name,7
-153,Delphi,"programming language (dialect of Object Pascal, used in Embarcadero Delphi)",12
-154,Rexx,interpreted programming language,12
-155,Tcl,Chinese multinational technology company,0
+142,mini-ML,scientific article published in January 1980,31
+143,Java Card,Smart card,64
+144,Assembly Language,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,36
+145,BASIC,"programming language for beginners, mainly using familiar English words or abbreviations of them",117
+146,Shell Scripting,"script written for the shell, or command line interpreter, of an operating system",20
+147,Coq,chemical compound,11
+148,CAML,protein-coding gene in the species Homo sapiens,13
+149,GOAL,idea of the future or result that a person or group wants to achieve,69
+150,Gwendolen,female given name,6
+151,Ada,female given name,6
+152,GWENDOLEN,female given name,6
+153,Delphi,"programming language (dialect of Object Pascal, used in Embarcadero Delphi)",2
+154,Rexx,interpreted programming language,2
+155,Tcl,Chinese multinational technology company,46
 156,ClassicJava,,-1
 157,MzScheme,,-1
-158,AspectJ,aspect-oriented programming (AOP) extension created at PARC for the Java programming language,36
-159,BABEL,multilingual semantic network and encyclopedic dictionary,68
+158,AspectJ,aspect-oriented programming (AOP) extension created at PARC for the Java programming language,60
+159,BABEL,multilingual semantic network and encyclopedic dictionary,90
 160,Simple BABEL,,-1
 161,Simple Assembly Language,,-1
-162,ASP,family name,4
-163,Flora-2,open source semantic rule-based system for knowledge representation and reasoning,68
-164,LPS,class of molecules found in the outer membrane of Gram-negative bacteria,77
-165,Lexon,"building in Queen Anne's County, Maryland, United States",79
+162,ASP,family name,5
+163,Flora-2,open source semantic rule-based system for knowledge representation and reasoning,44
+164,LPS,class of molecules found in the outer membrane of Gram-negative bacteria,37
+165,Lexon,"building in Queen Anne's County, Maryland, United States",142
 166,PENGASP,,-1
-167,Solidity,object-oriented programming language for writing smart contracts.,65
-168,PiCAT,family name,4
-169,Mathematica,sequence of instructions to perform a task,15
-170,Assembly language,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,15
-171,Kanren,Tang dynasty person CBDB = 139913,0
-172,AspectC,aspect-oriented extension to C and C++,36
-173,AspectC++,aspect-oriented extension to C and C++,36
-174,Movec,"Wikidata tool to move or copy a statement from one entity to another, or to change the property",57
-175,Algol,family of imperative computer programming languages,66
-176,GNU Octave,numerical computation software,18
-177,Ginger,female given name,7
-178,Agda,"dependently typed, purely functional programming language and proof assistant",37
+167,Solidity,object-oriented programming language for writing smart contracts.,79
+168,PiCAT,family name,5
+169,Mathematica,sequence of instructions to perform a task,126
+170,Assembly language,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,36
+171,Kanren,Tang dynasty person CBDB = 139913,112
+172,AspectC,aspect-oriented extension to C and C++,60
+173,AspectC++,aspect-oriented extension to C and C++,60
+174,Movec,"Wikidata tool to move or copy a statement from one entity to another, or to change the property",66
+175,Algol,family of imperative computer programming languages,186
+176,GNU Octave,numerical computation software,10
+177,Ginger,female given name,6
+178,Agda,"dependently typed, purely functional programming language and proof assistant",189
 179,Answer Set Prolog,,-1
 180,CR-Prolog,,-1
 181,Nλ,,-1
-182,Ladder Diagram,US patent 11378928,84
-183,Lazy ML,programming language,12
-184,FORTRAN IV,1961 edition of the Fortran programming language standard,25
+182,Ladder Diagram,US patent 11378928,91
+183,Lazy ML,programming language,2
+184,FORTRAN IV,1961 edition of the Fortran programming language standard,49
 185,Idris2,,-1
 186,Linear Haskell,,-1
-187,Seq,heuristic for sourcing Wikidata statements from known dates of other events which occurred before or after this event,57
+187,Seq,heuristic for sourcing Wikidata statements from known dates of other events which occurred before or after this event,162
 188,UnityScript,,-1
-189,IMP,grammatical mood that expresses a command or request,31
-190,Answer Set Programming,programming paradigm focused on difficult search problems,37
+189,IMP,grammatical mood that expresses a command or request,33
+190,Answer Set Programming,programming paradigm focused on difficult search problems,115
 191,Disjunctive Logic Programming,,-1
-192,C--,C-like programming language,2
-193,XQuery,functional programming and query language for XML,37
-194,Visual Prolog,programming language,12
-195,CUDA,family name,4
-196,GJ,star catalogue,71
-197,Jass,musical style and genre,23
-198,Mini,family name,4
-199,Algol 68,programming language,12
-200,Forth,programming language,12
-201,PL/I,"procedural, imperative computer programming language",66
-202,Simula,programming language,12
+192,C--,C-like programming language,187
+193,XQuery,functional programming and query language for XML,116
+194,Visual Prolog,programming language,2
+195,CUDA,family name,5
+196,GJ,star catalogue,8
+197,Jass,musical style and genre,123
+198,Mini,family name,5
+199,Algol 68,programming language,2
+200,Forth,programming language,2
+201,PL/I,"procedural, imperative computer programming language",186
+202,Simula,programming language,2
 203,Z80 Assembly,,-1
-204,LISP,functional programming language based on the lambda calculus,37
+204,LISP,functional programming language based on the lambda calculus,27
 205,XDProlog,,-1
 206,XProlog,,-1
-207,Javascript,text-based open standard designed for human-readable data interchange,29
-208,Bash,Turkic language spoken in Russia,74
-209,Granule,asteroid,26
-210,ACL2,"software system consisting of a programming language, an extensible theory in a first-order logic, and an automated theorem prover",73
-211,Just,family name,4
-212,XPand,2006 video game,97
-213,VB.NET,programming language for .NET,55
-214,Eff,genus of insects,41
+207,Javascript,text-based open standard designed for human-readable data interchange,19
+208,Bash,Turkic language spoken in Russia,100
+209,Granule,asteroid,129
+210,ACL2,"software system consisting of a programming language, an extensible theory in a first-order logic, and an automated theorem prover",0
+211,Just,family name,5
+212,XPand,2006 video game,85
+213,VB.NET,programming language for .NET,167
+214,Eff,genus of insects,23
 215,Multicore OCaml,,-1
 216,kProlog,,-1
 217,tProlog,,-1
-218,IDL,any computer language used to describe a software component's interface,32
-219,Yorick,male given name,16
-220,Transact-SQL,Microsoft's and Sybase's proprietary extension to SQL (Structured Query Language) used to interact with relational databases,19
-221,Q#,programming language,12
-222,xonsh,Python library,14
+218,IDL,any computer language used to describe a software component's interface,192
+219,Yorick,male given name,1
+220,Transact-SQL,Microsoft's and Sybase's proprietary extension to SQL (Structured Query Language) used to interact with relational databases,81
+221,Q#,programming language,2
+222,xonsh,Python library,193
 223,FUNLOG,,-1
-224,HiLog,programming logic with higher-order syntax,73
+224,HiLog,programming logic with higher-order syntax,0
 225,Rulelog,,-1
 226,XMLVM,,-1
-227,Natlog,"1957 film by Anker Sørensen, Johannes Allen",58
-228,APL,"functional, symbolic programming language for operating on multidimensional arrays",37
-229,CLIPS,public domain software tool for building expert systems,68
-230,FIL,"official language of the Philippines; standard and prescriptive form of Tagalog language; alternative name for Tagalog language, particularly its standardized form",74
-231,FLINT,historic county,79
-232,Turbo Prolog,programming language,12
-233,VHDL,Hardware Description Language,32
-234,Verilog,hardware description language,32
-235,GLSL,shading language,44
-236,Turbo Pascal,programming language,12
-237,F-Logic,knowledge representation and ontology language,68
-238,Hansi,unisex given name,27
-239,Scilab,free and open source software for numerical computation,18
-240,Dart,family name,4
-241,ALM,family name,4
-242,ALd,medical condition,80
-243,BC,province of Canada,60
-244,PDDL,"license by the Open Data Commons that allows usage, sharing and modification of datasets for any purpose and without any restriction",29
-245,Plog,family name,4
-246,SPARC,RISC instruction set architecture,15
-247,STRIPS,genus of insects,41
-248,AgentSpeak,agent-oriented programming language,65
-249,Nice,"city and commune in Alpes-Maritimes, Provence-Alpes-Côte d'Azur, France",13
-250,FORTRAN-IV,1961 edition of the Fortran programming language standard,25
-251,Concurrent Haskell,extension of Haskell 98 with explicit concurrency,37
-252,PCF,French political party,46
-253,ABC,American broadcast television network owned by The Walt Disney Company,43
-254,Blitz,family name,4
-255,Sinclair BASIC,dialect of the programming language BASIC,67
+227,Natlog,"1957 film by Anker Sørensen, Johannes Allen",74
+228,APL,"functional, symbolic programming language for operating on multidimensional arrays",135
+229,CLIPS,public domain software tool for building expert systems,196
+230,FIL,"official language of the Philippines; standard and prescriptive form of Tagalog language; alternative name for Tagalog language, particularly its standardized form",39
+231,FLINT,historic county,48
+232,Turbo Prolog,programming language,2
+233,VHDL,Hardware Description Language,15
+234,Verilog,hardware description language,15
+235,GLSL,shading language,63
+236,Turbo Pascal,programming language,2
+237,F-Logic,knowledge representation and ontology language,178
+238,Hansi,unisex given name,26
+239,Scilab,free and open source software for numerical computation,10
+240,Dart,family name,5
+241,ALM,family name,5
+242,ALd,medical condition,104
+243,BC,province of Canada,29
+244,PDDL,"license by the Open Data Commons that allows usage, sharing and modification of datasets for any purpose and without any restriction",127
+245,Plog,family name,5
+246,SPARC,RISC instruction set architecture,146
+247,STRIPS,genus of insects,23
+248,AgentSpeak,agent-oriented programming language,79
+249,Nice,"city and commune in Alpes-Maritimes, Provence-Alpes-Côte d'Azur, France",111
+250,FORTRAN-IV,1961 edition of the Fortran programming language standard,49
+251,Concurrent Haskell,extension of Haskell 98 with explicit concurrency,107
+252,PCF,French political party,12
+253,ABC,American broadcast television network owned by The Walt Disney Company,65
+254,Blitz,family name,5
+255,Sinclair BASIC,dialect of the programming language BASIC,4
 256,Z80 machine code,,-1
-257,PARLOG,programming language,12
-258,ANGEL,unisex given name,27
-259,Gumtree,British online classified advertisement and community website,87
+257,PARLOG,programming language,2
+258,ANGEL,unisex given name,26
+259,Gumtree,British online classified advertisement and community website,54
 260,Qu-Prolog,,-1
-261,Leda,astronomical catalogue,71
+261,Leda,astronomical catalogue,8
 262,Extended Shared Prolog,,-1
 263,Shared Prolog,,-1
 264,Relogo,,-1
-265,FLIP,male given name,16
-266,VBA,programming language,12
-267,Idris 2,Sultan of Morocco from 803 to 828,60
-268,kLog,German-Swedish artist (1628-1698),58
+265,FLIP,male given name,1
+266,VBA,programming language,2
+267,Idris 2,Sultan of Morocco from 803 to 828,32
+268,kLog,German-Swedish artist (1628-1698),47
 269,kProbLog,,-1
-270,Visual Basic .NET,programming language for .NET,55
-271,Objective-C,"general-purpose, high-level, object-oriented programming language",65
-272,Boo,constellation in the northern celestial hemisphere,90
-273,CDL,digital public library founded by University of California in 1997,51
-274,LET,social network service for films,87
+270,Visual Basic .NET,programming language for .NET,167
+271,Objective-C,"general-purpose, high-level, object-oriented programming language",79
+272,Boo,constellation in the northern celestial hemisphere,34
+273,CDL,digital public library founded by University of California in 1997,124
+274,LET,social network service for films,99
 275,STARLET/GL,,-1
-276,Emacs Lisp,dialect of Lisp used in GNU Emacs,21
-277,F,"country in Western Europe and other continents (through its overseas territories in America, Africa and Oceania)",5
-278,Basic,"programming language for beginners, mainly using familiar English words or abbreviations of them",12
-279,Smalltalk-80,programming language,12
-280,Alice,female given name,7
-281,Sather,family name,4
+276,Emacs Lisp,dialect of Lisp used in GNU Emacs,4
+277,F,"country in Western Europe and other continents (through its overseas territories in America, Africa and Oceania)",3
+278,Basic,"programming language for beginners, mainly using familiar English words or abbreviations of them",117
+279,Smalltalk-80,programming language,2
+280,Alice,female given name,6
+281,Sather,family name,5
 282,Bousi-Prolog,,-1
-283,BETA,genus of the foxtail family,99
-284,Atari Basic,BASIC interpreter,64
-285,LiveScript,Functional programming language that compiles to JavaScript (founded in 2011),48
+283,BETA,genus of the foxtail family,9
+284,Atari Basic,BASIC interpreter,180
+285,LiveScript,Functional programming language that compiles to JavaScript (founded in 2011),83
 286,8051 assembly language,,-1
-287,SystemC,C++ extensions for simulating embedded systems,36
-288,Cobra,Thomson TO Disk. ; 1987 Loriciels France,46
-289,CoffeeScript,programming language which compiles to JavaScript,48
-290,GDScript,programming language,12
-291,Nim,city and prefecture of the Gard department in the Occitanie region of Southern France,52
-292,Swift,family name,4
-293,L,12th letter of the basic Latin alphabet,39
-294,Processing,"any process that uses a computer program to enter data and summarise, analyse or otherwise convert data into usable information",33
-295,ELF,family name,4
+287,SystemC,C++ extensions for simulating embedded systems,156
+288,Cobra,Thomson TO Disk. ; 1987 Loriciels France,38
+289,CoffeeScript,programming language which compiles to JavaScript,83
+290,GDScript,programming language,2
+291,Nim,city and prefecture of the Gard department in the Occitanie region of Southern France,53
+292,Swift,family name,5
+293,L,12th letter of the basic Latin alphabet,16
+294,Processing,"any process that uses a computer program to enter data and summarise, analyse or otherwise convert data into usable information",190
+295,ELF,family name,5
 296,FPROLOG,,-1
-297,Fuzzy Prolog,article published in 1988,20
-298,POSLOG,family name,4
-299,PROFIL,family name,4
+297,Fuzzy Prolog,article published in 1988,166
+298,POSLOG,family name,5
+299,PROFIL,family name,5
 300,Scratch Jr.,,-1
-301,SL5,programming language,12
+301,SL5,programming language,2
 302,Rascal,,-1
-303,Jeeg,1979 single by Roberto Fogu (A-side) and Detto Mariano (B-side),94
-304,ALGOL,family of imperative computer programming languages,66
-305,ALGOL 60,member of the ALGOL family of computer programming languages,66
-306,INTERLISP,dialect of the Lisp programming language,67
-307,LISP 1.5,functional programming language based on the lambda calculus,37
+303,Jeeg,1979 single by Roberto Fogu (A-side) and Detto Mariano (B-side),86
+304,ALGOL,family of imperative computer programming languages,186
+305,ALGOL 60,member of the ALGOL family of computer programming languages,122
+306,INTERLISP,dialect of the Lisp programming language,4
+307,LISP 1.5,functional programming language based on the lambda calculus,27
 308,LISP 1.6,,-1
 309,LISP/N,,-1
-310,MLISP,programming language,12
-311,VLISP,Lisp dialect,67
+310,MLISP,programming language,2
+311,VLISP,Lisp dialect,4
 312,Algol68,,-1
-313,Palingol,scientific article published on April 1996,20
-314,SPARQL,RDF query language,19
-315,Beta,genus of the foxtail family,99
-316,Emerald,given name,26
+313,Palingol,scientific article published on April 1996,31
+314,SPARQL,RDF query language,158
+315,Beta,genus of the foxtail family,9
+316,Emerald,given name,42
 317,Featherweight Java,,-1
 318,Featherweight Jigsaw,,-1
-319,Grace,female given name,7
-320,J&,former state administered by India,22
-321,Jx,Catalan political coalition,46
-322,LOOJ,domestic robot,47
-323,Newspeak,fictional language in the novel Nineteen Eighty-Four,61
-324,Tribe,taxonomic rank between family and genus,24
-325,gbeta,protein-coding gene in the species Homo sapiens,6
-326,IGOR Pro,data analysis software,33
-327,LabVIEW,system-design platform and development environment,96
-328,MEL,female given name,7
-329,Problog,family of gnathostomulids,53
-330,JR,suffix used in personal name,16
-331,SR,country in South America,54
-332,JAC,male given name,16
+319,Grace,female given name,6
+320,J&,former state administered by India,106
+321,Jx,Catalan political coalition,165
+322,LOOJ,domestic robot,130
+323,Newspeak,fictional language in the novel Nineteen Eighty-Four,101
+324,Tribe,taxonomic rank between family and genus,133
+325,gbeta,protein-coding gene in the species Homo sapiens,13
+326,IGOR Pro,data analysis software,55
+327,LabVIEW,system-design platform and development environment,125
+328,MEL,female given name,6
+329,Problog,family of gnathostomulids,58
+330,JR,suffix used in personal name,152
+331,SR,country in South America,138
+332,JAC,male given name,1
 333,K-MAN DML,,-1
 334,dBASE II DML,,-1
 335,Carmel0,,-1
-336,ColdFusion,rapid web app development platform,96
-337,REBOL,programming language designed by Carl Sassenrath,12
-338,Iota,subgenus of hymenopterans,41
+336,ColdFusion,rapid web app development platform,182
+337,REBOL,programming language designed by Carl Sassenrath,114
+338,Iota,subgenus of hymenopterans,171
 339,m-script,,-1
-340,CLOC,instrument that measures the passage of time,11
-341,CESIL,female given name,7
-342,FORTH,programming language,12
+340,CLOC,instrument that measures the passage of time,102
+341,CESIL,female given name,6
+342,FORTH,programming language,2
 343,The IntelligenT (TIT),,-1
-344,SC-0,chemical compound,28
+344,SC-0,chemical compound,11
 345,SC-NF,,-1
 346,XC-cube,,-1
-347,LDL,high levels of cholesterol in the blood,50
+347,LDL,high levels of cholesterol in the blood,80
 348,PICQUERY,,-1
-349,QBE,2014 video game,63
+349,QBE,2014 video game,7
 350,QPE,,-1
 351,S9QL,,-1
 352,TBASIQ,,-1
 353,CR-Prolog2,,-1
-354,LPOD,Open format,62
-355,YAFL,microbial protein found in Escherichia coli str. K-12 substr. MG1655,77
-356,JESS,given name,26
-357,Lingo,family name,4
-358,MuPAD,"computer algebra system (CAS), originally developed by the MuPAD research group at the University of Paderborn, Germany",85
-359,Anemone,genus of plants,8
-360,SAPL,protein-coding gene in the species Homo sapiens,6
+354,LPOD,Open format,43
+355,YAFL,microbial protein found in Escherichia coli str. K-12 substr. MG1655,143
+356,JESS,given name,42
+357,Lingo,family name,5
+358,MuPAD,"computer algebra system (CAS), originally developed by the MuPAD research group at the University of Paderborn, Germany",84
+359,Anemone,genus of plants,24
+360,SAPL,protein-coding gene in the species Homo sapiens,13
 361,CaesarJ,,-1
-362,Hyper-J,2019 video game,97
-363,CHR,male given name,16
-364,CafeOBJ,declarative programming language,12
-365,Claire,female given name,7
+362,Hyper-J,2019 video game,85
+363,CHR,male given name,1
+364,CafeOBJ,declarative programming language,139
+365,Claire,female given name,6
 366,ELAN,,-1
-367,Maude,female given name,7
-368,OBJ3,programming language family,66
+367,Maude,female given name,6
+368,OBJ3,programming language family,71
 369,PρLog,,-1
-370,Stratego,1990 video game,63
+370,Stratego,1990 video game,7
 371,ρLog,,-1
-372,L-system,language used to describe self-similar fractal systems,92
-373,Xtend,extend like a boss,95
-374,ALF,male given name,16
+372,L-system,language used to describe self-similar fractal systems,73
+373,Xtend,extend like a boss,76
+374,ALF,male given name,1
 375,K-LEAF,,-1
 376,Kernel LEAF,,-1
-377,SLOG,American progamer,97
-378,AWK,"data-driven programming language made by Alfred Aho, Peter Weinberger and Brian Kernighan",12
-379,gnuplot,command-line plotting program,35
-380,Stata,family name,4
-381,Shell,British multinational oil and gas company,0
-382,RobotC,programming language based on C,2
-383,Chariot,ancient wheeled vehicle,47
-384,Lambda-Prolog,"logic programming language featuring polymorphic typing, modular programming",17
+377,SLOG,American progamer,128
+378,AWK,"data-driven programming language made by Alfred Aho, Peter Weinberger and Brian Kernighan",150
+379,gnuplot,command-line plotting program,22
+380,Stata,family name,5
+381,Shell,British multinational oil and gas company,168
+382,RobotC,programming language based on C,187
+383,Chariot,ancient wheeled vehicle,28
+384,Lambda-Prolog,"logic programming language featuring polymorphic typing, modular programming",25
 385,Occam-2,,-1
-386,Self,family name,4
-387,Whiley,family name,4
-388,Scilla,genus of plants,8
-389,Takamaka,district of Seychelles,22
-390,Visual Basic for Applications,programming language,12
-391,T-SQL,Microsoft's and Sybase's proprietary extension to SQL (Structured Query Language) used to interact with relational databases,19
-392,Jason,male given name,16
+386,Self,family name,5
+387,Whiley,family name,5
+388,Scilla,genus of plants,24
+389,Takamaka,district of Seychelles,148
+390,Visual Basic for Applications,programming language,2
+391,T-SQL,Microsoft's and Sybase's proprietary extension to SQL (Structured Query Language) used to interact with relational databases,81
+392,Jason,male given name,1
 393,GluonJ,,-1
-394,Elixir,programming language,12
-395,OAK,genus of plants,8
-396,April,female given name,7
+394,Elixir,programming language,2
+395,OAK,genus of plants,24
+396,April,female given name,6
 397,DK_Parlog++,,-1
 398,IC Prolog II,,-1
-399,Polka,Central European dance,23
-400,AutoHotkey,"free, open-source macro-creation and automation software for Windows",55
+399,Polka,Central European dance,145
+400,AutoHotkey,"free, open-source macro-creation and automation software for Windows",149
 401,LIQUi|⟩,,-1
-402,MiniZinc,constraint modeling language,68
-403,OpenQASM,intermediate representation for quantum instructions,15
+402,MiniZinc,constraint modeling language,164
+403,OpenQASM,intermediate representation for quantum instructions,98
 404,QMASM,,-1
-405,Quil,"city in Buenos Aires Province, Argentina",54
-406,Quipper,education technology company,0
-407,Batch,pile built of accumulated spoil,72
-408,Algol-60,member of the ALGOL family of computer programming languages,66
-409,Assembler,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,15
-410,Basic4Android,programming language,12
-411,Cobol,programming language with English-like syntax,12
-412,Modula-2,programming language,12
-413,Fennel,"species of plant, fennel (for the herb use Q104005460)",8
-414,Logo,computer programming language,12
-415,Perl 6,member of the Perl family of programming languages,66
-416,Unix shell,command-line interpreter for Unix operating system,64
-417,awk,"data-driven programming language made by Alfred Aho, Peter Weinberger and Brian Kernighan",12
-418,sed,communist political party and ruling state party of the GDR,30
+405,Quil,"city in Buenos Aires Province, Argentina",118
+406,Quipper,education technology company,173
+407,Batch,pile built of accumulated spoil,87
+408,Algol-60,member of the ALGOL family of computer programming languages,122
+409,Assembler,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,36
+410,Basic4Android,programming language,2
+411,Cobol,programming language with English-like syntax,177
+412,Modula-2,programming language,2
+413,Fennel,"species of plant, fennel (for the herb use Q104005460)",179
+414,Logo,computer programming language,2
+415,Perl 6,member of the Perl family of programming languages,71
+416,Unix shell,command-line interpreter for Unix operating system,20
+417,awk,"data-driven programming language made by Alfred Aho, Peter Weinberger and Brian Kernighan",150
+418,sed,communist political party and ruling state party of the GDR,137
 419,Contralog,,-1
-420,Cypher,2018 puzzle video game,97
-421,CSS,declarative language for styling web pages,44
-422,HTML,family of markup languages for displaying content in a web browser,44
+420,Cypher,2018 puzzle video game,85
+421,CSS,declarative language for styling web pages,181
+422,HTML,family of markup languages for displaying content in a web browser,134
 423,DEC-10 Prolog,,-1
-424,OPS5,rule-based or production system computer language,12
+424,OPS5,rule-based or production system computer language,195
 425,Shimple,,-1
-426,Fortran 90,1990 edition of the Fortran programming language standard,25
-427,G,type of year G on a solar calendar according to its starting and ending days in the week,81
-428,CUDA C,episode in the life of the Buddha,42
-429,DAX,"commune in Landes, France",69
-430,Isabelle/HOL,2015 doctoral thesis by Walter Guttmann at University of Canterbury,76
-431,FoxPro,programming language,12
-432,JScript,implementation of ECMAScript by Microsoft,55
-433,VBScript,script programming language,64
+426,Fortran 90,1990 edition of the Fortran programming language standard,49
+427,G,type of year G on a solar calendar according to its starting and ending days in the week,132
+428,CUDA C,episode in the life of the Buddha,109
+429,DAX,"commune in Landes, France",78
+430,Isabelle/HOL,2015 doctoral thesis by Walter Guttmann at University of Canterbury,21
+431,FoxPro,programming language,2
+432,JScript,implementation of ECMAScript by Microsoft,151
+433,VBScript,script programming language,61
 434,C_Prolog,,-1
 435,Env_Prolog,,-1
 436,Macro Assembly,,-1
 437,68000 assembly language,,-1
 438,Z80 machine language,,-1
-439,FORTRAN 77,1977 edition of the Fortran programming language standard,25
-440,Guarded Horn Clauses,programming language,12
+439,FORTRAN 77,1977 edition of the Fortran programming language standard,49
+440,Guarded Horn Clauses,programming language,2
 441,Mu-Prolog,,-1
 442,Typed Prolog,,-1
-443,Tom,male given name,16
-444,Kodu,Japanese family name (河津),4
-445,TURBO PASCAL,programming language,12
-446,Fay,family name,4
-447,Idris,genus of wasps,41
-448,Nemerle,general-purpose high-level statically typed programming language,10
-449,Ceylon,island country in South Asia,5
+443,Tom,male given name,1
+444,Kodu,Japanese family name (河津),194
+445,TURBO PASCAL,programming language,2
+446,Fay,family name,5
+447,Idris,genus of wasps,23
+448,Nemerle,general-purpose high-level statically typed programming language,35
+449,Ceylon,island country in South Asia,175
 450,Cp#,,-1
-451,Genus,"taxonomic rank used in the biological classification of living and fossil organisms, and viruses",24
+451,Genus,"taxonomic rank used in the biological classification of living and fossil organisms, and viruses",133
 452,JavaGI,,-1
 453,Flat Concurrent Prolog,,-1
-454,Algorithmic C,measure of algorithmic complexity,70
+454,Algorithmic C,measure of algorithmic complexity,57
 455,Restricted Algorithmic Rust,,-1
-456,COMMON LISP,ANSI-standardized dialect of Lisp,21
-457,Jarrah,family name,4
-458,RealBasic,programming language,12
-459,PowerShell,cross-platform command-line interface and scripting language for system and network administration,64
+456,COMMON LISP,ANSI-standardized dialect of Lisp,188
+457,Jarrah,family name,5
+458,RealBasic,programming language,2
+459,PowerShell,cross-platform command-line interface and scripting language for system and network administration,20
 460,Camelot,vocal track by Py Bäckman; 1986 studio recording,93
 461,BinProlog,,-1
-462,JINNI,supernatural spirits integrated in Islamic beliefs,42
-463,SETL,programming language,12
+462,JINNI,supernatural spirits integrated in Islamic beliefs,72
+463,SETL,programming language,2
 464,C-Lisp,,-1
-465,CML,myeloid leukemia that is characterized by over production of white blood cells,82
-466,Esterel,mountain range in Southern France,52
-467,Occam,philosophical principle used to judge credibility of statements,75
-468,Standard Pascal,computer program,12
-469,lambda Prolog,"logic programming language featuring polymorphic typing, modular programming",17
-470,Reduce,ubiquitous antioxidant compound in living organisms,28
-471,CLP(R),declarative programming language,12
-472,Prolog II,1828 poem written by Gustav Schwab,34
-473,SWI Prolog,"free implementation of the programming language Prolog, commonly used for teaching and semantic web applications",1
+465,CML,myeloid leukemia that is characterized by over production of white blood cells,40
+466,Esterel,mountain range in Southern France,161
+467,Occam,philosophical principle used to judge credibility of statements,70
+468,Standard Pascal,computer program,2
+469,lambda Prolog,"logic programming language featuring polymorphic typing, modular programming",25
+470,Reduce,ubiquitous antioxidant compound in living organisms,113
+471,CLP(R),declarative programming language,139
+472,Prolog II,1828 poem written by Gustav Schwab,103
+473,SWI Prolog,"free implementation of the programming language Prolog, commonly used for teaching and semantic web applications",67
 474,Strawberry Prolog,,-1
-475,JSP,Japanese political party (1945-1996),30
+475,JSP,Japanese political party (1945-1996),131
 476,Open PROMOL,,-1
-477,Mind,non-commercial online mineralogical database,19
-478,PostScript,programming language,12
+477,Mind,non-commercial online mineralogical database,108
+478,PostScript,programming language,2
 479,JVFH,,-1
 480,宏汇编语言,,-1
-481,汇编语言,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,15
-482,ABCL,family of programming languages,66
-483,Obliq,grammatical case,31
-484,POOL,"body of man-made standing water, that is usually smaller than a lake",56
-485,LINGO,family name,4
+481,汇编语言,any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions,36
+482,ABCL,family of programming languages,71
+483,Obliq,grammatical case,41
+484,POOL,"body of man-made standing water, that is usually smaller than a lake",110
+485,LINGO,family name,5
 486,Hyprolog,,-1
-487,KuMir,"island in Aru Islands Regency, Maluku Province, Indonesia",5
-488,Pikto,"practice of applying paint, pigment, color or other medium to a surface",88
-489,Pharo,family name,4
-490,Gnuplot,command-line plotting program,35
-491,Algol-68,programming language,12
-492,XSLT,language for transforming XML documents,29
-493,S,"SI unit of time, defined as 9 192 631 770 periods of the ground-state hyperfine transitions of caesium-133",11
-494,Visual FoxPro,programming language,12
-495,Mojo,"district in Kediri Regency, East Java Province, Indonesia",22
-496,DiSL,family name,4
-497,Syntheto,genus of arachnids,41
+487,KuMir,"island in Aru Islands Regency, Maluku Province, Indonesia",141
+488,Pikto,"practice of applying paint, pigment, color or other medium to a surface",77
+489,Pharo,family name,5
+490,Gnuplot,command-line plotting program,22
+491,Algol-68,programming language,2
+492,XSLT,language for transforming XML documents,183
+493,S,"SI unit of time, defined as 9 192 631 770 periods of the ground-state hyperfine transitions of caesium-133",144
+494,Visual FoxPro,programming language,2
+495,Mojo,"district in Kediri Regency, East Java Province, Indonesia",50
+496,DiSL,family name,5
+497,Syntheto,genus of arachnids,169
 498,Micro-Prolog,,-1
-499,Turbo-Prolog,programming language,12
+499,Turbo-Prolog,programming language,2
 500,Object COBOL,,-1
-501,JScript.NET,programming language developed by Microsoft,55
-502,Telescript,programming language,12
+501,JScript.NET,programming language developed by Microsoft,94
+502,Telescript,programming language,2
 503,K-Prolog,,-1
 504,JACIE AML-TPOT,,-1
 505,AnyDice,,-1
-506,Troll,family name,4
-507,lambda-Prolog,"logic programming language featuring polymorphic typing, modular programming",17
+506,Troll,family name,5
+507,lambda-Prolog,"logic programming language featuring polymorphic typing, modular programming",25
 508,Prolog4v,,-1
-509,Verilog HDL,hardware description language,32
-510,Franz-Lisp,dialect of the Lisp programming language,67
-511,MicroPython,microcontroller software based on Python,14
-512,Elm,family name,4
-513,Hy,constellation straddling the celestial equator,90
-514,λProlog,"logic programming language featuring polymorphic typing, modular programming",17
-515,QML,programming language,12
+509,Verilog HDL,hardware description language,15
+510,Franz-Lisp,dialect of the Lisp programming language,4
+511,MicroPython,microcontroller software based on Python,160
+512,Elm,family name,5
+513,Hy,constellation straddling the celestial equator,34
+514,λProlog,"logic programming language featuring polymorphic typing, modular programming",25
+515,QML,programming language,2
 516,OGJ+,,-1
-517,Karel,male given name,16
-518,SystemVerilog,hardware description and hardware verification language,32
+517,Karel,male given name,1
+518,SystemVerilog,hardware description and hardware verification language,15
 519,Prolog-KABA,,-1
-520,VRML,file format for representing 3D interactive vector graphics,62
-521,C++/CLI,programming language,12
-522,Squirrel,family of rodents,99
+520,VRML,file format for representing 3D interactive vector graphics,157
+521,C++/CLI,programming language,2
+522,Squirrel,family of rodents,155
 523,SL5 Object,,-1
-524,D,4th letter of the basic Latin alphabet,39
+524,D,4th letter of the basic Latin alphabet,16
 525,Featherweight Generic Java,,-1
 526,Featherweight Immutable Java,,-1
 527,Featherweight Ownership Generic Java,,-1
-528,Planner,professional who practices in the field of urban planning,83
-529,Jython,Java implementation of the Python interpreter,14
-530,ELI,unisex given name,27
-531,EVA,female given name,7
+528,Planner,professional who practices in the field of urban planning,82
+529,Jython,Java implementation of the Python interpreter,56
+530,ELI,unisex given name,26
+531,EVA,female given name,6
 532,FemtoLisp,,-1
-533,LLL,Norwegian band,58
-534,M,SI unit of length,78
+533,LLL,Norwegian band,59
+534,M,SI unit of length,30
 535,M++,,-1
-536,Wolfram Language,programming language and environment,12
-537,K,SI unit of length equal to one thousand metres,78
-538,NCL,French special collectivity and archipelago in Oceania,5
+536,Wolfram Language,programming language and environment,2
+537,K,SI unit of length equal to one thousand metres,30
+538,NCL,French special collectivity and archipelago in Oceania,3

@@ -4,7 +4,7 @@ from sentence_transformers import SentenceTransformer
 from sklearn.cluster import KMeans
 import numpy as np  # Import numpy for handling embeddings
 
-n_clusters = 100
+n_clusters = 150
 
 # 1. Cargar tus tecnologías
 try:

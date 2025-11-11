@@ -4,6 +4,8 @@ from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
+from languages import target_languages
+
 # 1. Cargar tus tecnologías
 try:
     df = pd.read_csv("tecnologia.csv")
@@ -15,11 +17,7 @@ except FileNotFoundError:
 # 2. Define your "Clean List" of target technologies
 # These are the "labels" we want to map everything to.
 # I'm using the main list we built in our previous chat.
-target_languages = [
-    'Java', 'Python', 'C', 'C++', 'JavaScript', 'Lisp', 'Prolog',
-    'OCaml', 'BASIC', 'Visual Basic', 'Pascal', 'MATLAB', 'COBOL',
-    'Octave', 'Objective-C', 'R', 'Perl', 'Lua', 'SQL', 'Fortran', 'C#'
-]
+
 print(f"Defined {len(target_languages)} target languages to map to.")
 
 
