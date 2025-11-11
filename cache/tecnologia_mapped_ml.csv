@@ -1,0 +1,539 @@
+id,nombre,tecnologia_nueva
+1,Python,Python
+2,R,R
+3,C++,C++
+4,Java,Java
+5,MATLAB,MATLAB
+6,JavaScript,JavaScript
+7,Perl,Perl
+8,Lua,Lua
+9,SQL,SQL
+10,C,C
+11,Fortran,Fortran
+12,C#,C#
+13,Visual Basic,Visual Basic
+14,ML,BASIC
+15,Modula-3,Pascal
+16,Hoc,Lua
+17,Lisp,Lisp
+18,SemQL,SQL
+19,Standard ML,BASIC
+20,Scheme,Lisp
+21,COBOL,COBOL
+22,Pico,OCaml
+23,Haskell,Prolog
+24,MetaOCaml,Perl
+25,OCaml,OCaml
+26,Prolog,Prolog
+27,Octave,Octave
+28,ActionScript,JavaScript
+29,Clojure,Lisp
+30,Common Lisp,Lisp
+31,E,C
+32,Erlang,Python
+33,Go,R
+34,PHP,Perl
+35,Rebol,COBOL
+36,Ruby,Python
+37,Scala,Java
+38,Cayenne,C
+39,Flow-Caml,OCaml
+40,JFlow,Java
+41,Jif,R
+42,Java-K,Java
+43,Eqlog,Prolog
+44,FOOPS,Lisp
+45,FP,Fortran
+46,OBJ,Objective-C
+47,OBJ2,Objective-C
+48,Koka,Lua
+49,JVML,Java
+50,Pascal,Pascal
+51,SML,Perl
+52,STAL,Perl
+53,TAL,Lua
+54,Julia,Octave
+55,Matlab,MATLAB
+56,Gofer,COBOL
+57,SAS,Fortran
+58,Scratch,R
+59,Cecil,C
+60,Eiffel,OCaml
+61,Caml,OCaml
+62,CeML,Perl
+63,Epic,R
+64,FCMC,C
+65,Facile,C
+66,ID,C
+67,LML,Lisp
+68,Miranda,Lua
+69,Multilisp,Fortran
+70,Opal,Lua
+71,RUFL,R
+72,Sisal,Lua
+73,Stoffel,Perl
+74,Trafola,COBOL
+75,Java Bytecode,Java
+76,Typed Assembly Language,C#
+77,InterLisp,Lisp
+78,POST-Prolog,Prolog
+79,Prolog2,Prolog
+80,BASIC-PLUS,BASIC
+81,FORTRAN,Fortran
+82,ProbLog,Prolog
+83,Clean,R
+84,F#,C#
+85,MSIL,C#
+86,Managed C++,C++
+87,VB,Visual Basic
+88,Rust,Java
+89,Lilac,Lisp
+90,SPSS,Lisp
+91,F⋆,R
+92,Groovy,Python
+93,SmallEiffel,OCaml
+94,STG,Perl
+95,LPG,Lisp
+96,PROLOG,Prolog
+97,Datalog,Prolog
+98,Dyna,Lua
+99,ICL,Perl
+100,PRISM,BASIC
+101,aProbLog,Prolog
+102,Mixwell,Lisp
+103,RL,R
+104,Refal,R
+105,Spec#,BASIC
+106,Cython,C
+107,Assembly,BASIC
+108,CakeML,Perl
+109,Racket,C
+110,Smalltalk,BASIC
+111,XAK,R
+112,Curry,C
+113,SNOBOL4,Lisp
+114,PL/SQL,SQL
+115,Unix Shell Scripting,Perl
+116,2P-Kt,C
+117,AKL,Perl
+118,Algol-W,COBOL
+119,Andorra Kernel Language,Perl
+120,Andorra Prolog,Prolog
+121,CHIP,Pascal
+122,Concurrent Prolog,Prolog
+123,Godel,Perl
+124,Kotlin,Lua
+125,LIFE,R
+126,Lambda Prolog,Prolog
+127,Logtalk,Prolog
+128,Mercury,C
+129,Oz,R
+130,Parlog,Prolog
+131,Picat,OCaml
+132,RackLog,Prolog
+133,TypeScript,JavaScript
+134,Dafny,COBOL
+135,λML_i,Prolog
+136,Objective Caml,Objective-C
+137,Maple,Fortran
+138,AProlog,R
+139,Elf,Java
+140,TYPOL,Lisp
+141,iProlog,Perl
+142,mini-ML,BASIC
+143,Java Card,Java
+144,Assembly Language,C#
+145,BASIC,BASIC
+146,Shell Scripting,Python
+147,Coq,COBOL
+148,CAML,OCaml
+149,GOAL,COBOL
+150,Gwendolen,Pascal
+151,Ada,Objective-C
+152,GWENDOLEN,Pascal
+153,Delphi,Lisp
+154,Rexx,Pascal
+155,Tcl,Perl
+156,ClassicJava,Java
+157,MzScheme,Perl
+158,AspectJ,Java
+159,BABEL,Perl
+160,Simple BABEL,Perl
+161,Simple Assembly Language,BASIC
+162,ASP,C
+163,Flora-2,Objective-C
+164,LPS,Perl
+165,Lexon,OCaml
+166,PENGASP,Pascal
+167,Solidity,C
+168,PiCAT,OCaml
+169,Mathematica,Java
+170,Assembly language,C#
+171,Kanren,Fortran
+172,AspectC,Objective-C
+173,AspectC++,C++
+174,Movec,C
+175,Algol,COBOL
+176,GNU Octave,Octave
+177,Ginger,R
+178,Agda,Lua
+179,Answer Set Prolog,Prolog
+180,CR-Prolog,Prolog
+181,Nλ,Perl
+182,Ladder Diagram,Prolog
+183,Lazy ML,BASIC
+184,FORTRAN IV,Fortran
+185,Idris2,Fortran
+186,Linear Haskell,Prolog
+187,Seq,SQL
+188,UnityScript,JavaScript
+189,IMP,Perl
+190,Answer Set Programming,Python
+191,Disjunctive Logic Programming,Prolog
+192,C--,C
+193,XQuery,SQL
+194,Visual Prolog,Prolog
+195,CUDA,Fortran
+196,GJ,Java
+197,Jass,Lua
+198,Mini,BASIC
+199,Algol 68,Pascal
+200,Forth,Pascal
+201,PL/I,C
+202,Simula,MATLAB
+203,Z80 Assembly,OCaml
+204,LISP,Lisp
+205,XDProlog,Lisp
+206,XProlog,Lisp
+207,Javascript,JavaScript
+208,Bash,Perl
+209,Granule,Lisp
+210,ACL2,Perl
+211,Just,R
+212,XPand,C
+213,VB.NET,Visual Basic
+214,Eff,R
+215,Multicore OCaml,OCaml
+216,kProlog,Prolog
+217,tProlog,Prolog
+218,IDL,Perl
+219,Yorick,R
+220,Transact-SQL,SQL
+221,Q#,C
+222,xonsh,R
+223,FUNLOG,Prolog
+224,HiLog,Prolog
+225,Rulelog,Prolog
+226,XMLVM,Java
+227,Natlog,Prolog
+228,APL,Perl
+229,CLIPS,R
+230,FIL,Perl
+231,FLINT,Lisp
+232,Turbo Prolog,Prolog
+233,VHDL,C++
+234,Verilog,Python
+235,GLSL,OCaml
+236,Turbo Pascal,Pascal
+237,F-Logic,Prolog
+238,Hansi,Lua
+239,Scilab,MATLAB
+240,Dart,Java
+241,ALM,Lua
+242,ALd,C
+243,BC,C
+244,PDDL,Perl
+245,Plog,Prolog
+246,SPARC,Lisp
+247,STRIPS,Perl
+248,AgentSpeak,Python
+249,Nice,R
+250,FORTRAN-IV,Fortran
+251,Concurrent Haskell,Prolog
+252,PCF,R
+253,ABC,C
+254,Blitz,Fortran
+255,Sinclair BASIC,BASIC
+256,Z80 machine code,C#
+257,PARLOG,Prolog
+258,ANGEL,R
+259,Gumtree,OCaml
+260,Qu-Prolog,Prolog
+261,Leda,Lua
+262,Extended Shared Prolog,Prolog
+263,Shared Prolog,Prolog
+264,Relogo,Prolog
+265,FLIP,Lua
+266,VBA,Visual Basic
+267,Idris 2,Fortran
+268,kLog,Prolog
+269,kProbLog,Lisp
+270,Visual Basic .NET,Visual Basic
+271,Objective-C,Objective-C
+272,Boo,R
+273,CDL,Perl
+274,LET,R
+275,STARLET/GL,OCaml
+276,Emacs Lisp,Lisp
+277,F,C
+278,Basic,BASIC
+279,Smalltalk-80,BASIC
+280,Alice,R
+281,Sather,C
+282,Bousi-Prolog,Prolog
+283,BETA,R
+284,Atari Basic,BASIC
+285,LiveScript,JavaScript
+286,8051 assembly language,Visual Basic
+287,SystemC,C#
+288,Cobra,R
+289,CoffeeScript,JavaScript
+290,GDScript,JavaScript
+291,Nim,R
+292,Swift,Objective-C
+293,L,C
+294,Processing,Java
+295,ELF,Java
+296,FPROLOG,Prolog
+297,Fuzzy Prolog,Prolog
+298,POSLOG,Perl
+299,PROFIL,Perl
+300,Scratch Jr.,Java
+301,SL5,Lua
+302,Rascal,MATLAB
+303,Jeeg,Lua
+304,ALGOL,COBOL
+305,ALGOL 60,COBOL
+306,INTERLISP,Lisp
+307,LISP 1.5,Lisp
+308,LISP 1.6,Lisp
+309,LISP/N,Lisp
+310,MLISP,Lisp
+311,VLISP,Visual Basic
+312,Algol68,Pascal
+313,Palingol,OCaml
+314,SPARQL,SQL
+315,Beta,R
+316,Emerald,OCaml
+317,Featherweight Java,Java
+318,Featherweight Jigsaw,Python
+319,Grace,Lua
+320,J&,Java
+321,Jx,Java
+322,LOOJ,Lua
+323,Newspeak,Python
+324,Tribe,Pascal
+325,gbeta,R
+326,IGOR Pro,Pascal
+327,LabVIEW,MATLAB
+328,MEL,Lua
+329,Problog,Prolog
+330,JR,Java
+331,SR,R
+332,JAC,Lua
+333,K-MAN DML,Perl
+334,dBASE II DML,SQL
+335,Carmel0,Lua
+336,ColdFusion,Fortran
+337,REBOL,COBOL
+338,Iota,Lua
+339,m-script,Python
+340,CLOC,C
+341,CESIL,Lua
+342,FORTH,Pascal
+343,The IntelligenT (TIT),Python
+344,SC-0,COBOL
+345,SC-NF,C
+346,XC-cube,Objective-C
+347,LDL,Perl
+348,PICQUERY,SQL
+349,QBE,COBOL
+350,QPE,Python
+351,S9QL,SQL
+352,TBASIQ,R
+353,CR-Prolog2,Prolog
+354,LPOD,Lisp
+355,YAFL,R
+356,JESS,Python
+357,Lingo,Lua
+358,MuPAD,Lua
+359,Anemone,Python
+360,SAPL,OCaml
+361,CaesarJ,C
+362,Hyper-J,Java
+363,CHR,C
+364,CafeOBJ,Java
+365,Claire,R
+366,ELAN,Lua
+367,Maude,Prolog
+368,OBJ3,Objective-C
+369,PρLog,Prolog
+370,Stratego,COBOL
+371,ρLog,Prolog
+372,L-system,MATLAB
+373,Xtend,C
+374,ALF,Lisp
+375,K-LEAF,C
+376,Kernel LEAF,Lisp
+377,SLOG,Lua
+378,AWK,R
+379,gnuplot,MATLAB
+380,Stata,Lua
+381,Shell,Python
+382,RobotC,Lisp
+383,Chariot,Pascal
+384,Lambda-Prolog,Prolog
+385,Occam-2,OCaml
+386,Self,R
+387,Whiley,COBOL
+388,Scilla,Fortran
+389,Takamaka,Lua
+390,Visual Basic for Applications,Visual Basic
+391,T-SQL,SQL
+392,Jason,Lua
+393,GluonJ,Java
+394,Elixir,Lisp
+395,OAK,C
+396,April,Lua
+397,DK_Parlog++,Prolog
+398,IC Prolog II,Prolog
+399,Polka,Python
+400,AutoHotkey,Visual Basic
+401,LIQUi|⟩,Lisp
+402,MiniZinc,BASIC
+403,OpenQASM,OCaml
+404,QMASM,Pascal
+405,Quil,Perl
+406,Quipper,Lisp
+407,Batch,Python
+408,Algol-60,Octave
+409,Assembler,Python
+410,Basic4Android,BASIC
+411,Cobol,COBOL
+412,Modula-2,Pascal
+413,Fennel,Lisp
+414,Logo,COBOL
+415,Perl 6,Perl
+416,Unix shell,Perl
+417,awk,R
+418,sed,Perl
+419,Contralog,Prolog
+420,Cypher,C
+421,CSS,JavaScript
+422,HTML,JavaScript
+423,DEC-10 Prolog,Prolog
+424,OPS5,OCaml
+425,Shimple,Lisp
+426,Fortran 90,Fortran
+427,G,R
+428,CUDA C,C
+429,DAX,C
+430,Isabelle/HOL,Lua
+431,FoxPro,Python
+432,JScript,JavaScript
+433,VBScript,Visual Basic
+434,C_Prolog,Prolog
+435,Env_Prolog,Prolog
+436,Macro Assembly,Visual Basic
+437,68000 assembly language,Visual Basic
+438,Z80 machine language,Java
+439,FORTRAN 77,Fortran
+440,Guarded Horn Clauses,Prolog
+441,Mu-Prolog,Prolog
+442,Typed Prolog,Prolog
+443,Tom,Java
+444,Kodu,Lua
+445,TURBO PASCAL,Pascal
+446,Fay,Lua
+447,Idris,Fortran
+448,Nemerle,C
+449,Ceylon,R
+450,Cp#,C#
+451,Genus,C
+452,JavaGI,Java
+453,Flat Concurrent Prolog,Prolog
+454,Algorithmic C,Objective-C
+455,Restricted Algorithmic Rust,Fortran
+456,COMMON LISP,Lisp
+457,Jarrah,Lua
+458,RealBasic,R
+459,PowerShell,C#
+460,Camelot,Pascal
+461,BinProlog,Prolog
+462,JINNI,Lua
+463,SETL,Perl
+464,C-Lisp,Lisp
+465,CML,Perl
+466,Esterel,Lua
+467,Occam,OCaml
+468,Standard Pascal,Pascal
+469,lambda Prolog,Prolog
+470,Reduce,C
+471,CLP(R),R
+472,Prolog II,Prolog
+473,SWI Prolog,Prolog
+474,Strawberry Prolog,Prolog
+475,JSP,Java
+476,Open PROMOL,Perl
+477,Mind,R
+478,PostScript,JavaScript
+479,JVFH,Java
+480,宏汇编语言,COBOL
+481,汇编语言,C
+482,ABCL,Perl
+483,Obliq,R
+484,POOL,Lisp
+485,LINGO,Lua
+486,Hyprolog,OCaml
+487,KuMir,Fortran
+488,Pikto,Lua
+489,Pharo,Lua
+490,Gnuplot,MATLAB
+491,Algol-68,Pascal
+492,XSLT,Lisp
+493,S,R
+494,Visual FoxPro,Visual Basic
+495,Mojo,R
+496,DiSL,Lisp
+497,Syntheto,Lisp
+498,Micro-Prolog,Prolog
+499,Turbo-Prolog,Prolog
+500,Object COBOL,COBOL
+501,JScript.NET,JavaScript
+502,Telescript,JavaScript
+503,K-Prolog,Prolog
+504,JACIE AML-TPOT,Fortran
+505,AnyDice,Pascal
+506,Troll,R
+507,lambda-Prolog,Prolog
+508,Prolog4v,Prolog
+509,Verilog HDL,Perl
+510,Franz-Lisp,Lisp
+511,MicroPython,Python
+512,Elm,Python
+513,Hy,C
+514,λProlog,Prolog
+515,QML,Perl
+516,OGJ+,Java
+517,Karel,R
+518,SystemVerilog,C#
+519,Prolog-KABA,Prolog
+520,VRML,C++
+521,C++/CLI,C++
+522,Squirrel,R
+523,SL5 Object,Lisp
+524,D,C
+525,Featherweight Generic Java,Java
+526,Featherweight Immutable Java,Java
+527,Featherweight Ownership Generic Java,Java
+528,Planner,Java
+529,Jython,Python
+530,ELI,Lua
+531,EVA,Lua
+532,FemtoLisp,Lisp
+533,LLL,Perl
+534,M,C
+535,M++,C++
+536,Wolfram Language,Java
+537,K,R
+538,NCL,Perl
