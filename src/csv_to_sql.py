@@ -42,10 +42,10 @@ def main():
     # Insert tematica_contenida
     for _, row in df_tematica_contenida.iterrows():
         cursor.execute("""
-            INSERT INTO tematica_contenida (tematica_padre_id, tematica_hijo_id)
-            VALUES (%s, %s)
+            INSERT INTO tematica_contenida (id, tematica_padre_id, tematica_hijo_id)
+            VALUES (%s, %s, %s)
             ON CONFLICT DO NOTHING
-        """, (int(row['id_padre']), int(row['id_hijo'])))
+        """, (int(row['id']), int(row['id_padre']), int(row['id_hijo'])))
 
     # Insert obra
     for _, row in df_obra.iterrows():
@@ -84,11 +84,11 @@ def main():
     # Insert obra_tecnologia
     for _, row in df_obra_tecnologia.iterrows():
         cursor.execute("""
-            INSERT INTO obra_tecnologia (obra_id, tecnologia_id)
-            VALUES (%s, %s)
-            ON CONFLICT (obra_id, tecnologia_id) DO NOTHING
-        """, (int(row['obra_id']), int(row['tecnologia_id'])))
-
+            INSERT INTO obra_tecnologia (id, obra_id, tecnologia_id)
+            VALUES (%s, %s, %s)
+            ON CONFLICT (id) DO NOTHING
+        """, (int(row['id']), int(row['obra_id']), int(row['tecnologia_id'])))
+# Puede que on conflict falle por lo de id 
     connection.commit()
     cursor.close()
     connection.close()

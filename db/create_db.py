@@ -10,19 +10,21 @@ DB_PARAMS = {
 }
 
 sql_script = """CREATE TABLE IF NOT EXISTS tematica (
-    id SERIAL PRIMARY KEY,
-    nombre_campo TEXT NOT NULL
+    id INTEGER,
+    nombre_campo TEXT NOT NULL,
+        PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS tecnologia (
-    id SERIAL PRIMARY KEY,
+    id INTEGER,
     nombre TEXT NOT NULL,
     tipo TEXT,
-    version TEXT
+    version TEXT,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS obra (
-    id SERIAL PRIMARY KEY,
+    id INTEGER,
     doi TEXT UNIQUE,  -- NEW
     direccion_fuente TEXT NOT NULL,
     titulo TEXT NOT NULL,
@@ -32,6 +34,7 @@ CREATE TABLE IF NOT EXISTS obra (
     num_citas INTEGER DEFAULT 0,
     fwci REAL,
     tematica_id INTEGER,
+    PRIMARY KEY (id),
     FOREIGN KEY (tematica_id)
         REFERENCES tematica(id)
         ON UPDATE CASCADE
@@ -39,9 +42,10 @@ CREATE TABLE IF NOT EXISTS obra (
 );
 
 CREATE TABLE IF NOT EXISTS obra_tecnologia (
+    id INTEGER,
     obra_id INTEGER NOT NULL,
     tecnologia_id INTEGER NOT NULL,
-    PRIMARY KEY (obra_id, tecnologia_id),
+    PRIMARY KEY (id),
     FOREIGN KEY (obra_id)
         REFERENCES obra(id)
         ON UPDATE CASCADE
@@ -53,9 +57,10 @@ CREATE TABLE IF NOT EXISTS obra_tecnologia (
 );
 
 CREATE TABLE IF NOT EXISTS tematica_contenida (
+    id INTEGER,
     tematica_padre_id INTEGER NOT NULL,
     tematica_hijo_id INTEGER NOT NULL,
-    PRIMARY KEY (tematica_padre_id, tematica_hijo_id),
+    PRIMARY KEY (id),
     FOREIGN KEY (tematica_padre_id)
         REFERENCES tematica(id)
         ON UPDATE CASCADE
