@@ -29,7 +29,7 @@ cur = conn.cursor()
 
 print("Connected to database ✅")
 
-# --- 3. TEMÁTICA ---
+# --- 1. TEMÁTICA ---
 cur.execute("SELECT id, nombre_campo FROM tematica;")
 for tmid, nombre in cur.fetchall():
     tema_uri = OPENALEX[f"tematica_{tmid}"]
@@ -59,7 +59,7 @@ for tid, nombre, tipo, version in cur.fetchall():
 
 print("Mapped table: tecnologia ✅")
 
-# --- 1. OBRA ---
+# --- 3. OBRA ---
 cur.execute("SELECT id, doi, direccion_fuente, titulo, abstract, fecha_publicacion, idioma, num_citas, fwci, tematica_id FROM obra;")
 for oid, doi, direccion_fuente, titulo, abstract, fecha_publicacion, idioma, num_citas, fwci, tematica_id in cur.fetchall():
     obra_uri = OPENALEX[f"obra_{oid}"]
@@ -85,8 +85,6 @@ for oid, doi, direccion_fuente, titulo, abstract, fecha_publicacion, idioma, num
 
 print("Mapped table: obra ✅")
 
-# --- 4. RELACIONES ---
-
 # obra_tecnologia → schema:mentions
 cur.execute("SELECT obra_id, tecnologia_id FROM obra_tecnologia;")
 for oid, tid in cur.fetchall():
@@ -95,12 +93,12 @@ for oid, tid in cur.fetchall():
 
 print("Mapped relationships ✅")
 
-# --- 5. EXPORT ---
+# --- 4. EXPORT ---
 output_file = "ttl/openalex_graph.ttl"
 g.serialize(destination=output_file, format="turtle")
 print(f"RDF graph exported to {output_file} 🧩")
 
-# --- 6. Cleanup ---
+# --- 5. Cleanup ---
 cur.close()
 conn.close()
 print("PostgreSQL connection closed 🔒")
