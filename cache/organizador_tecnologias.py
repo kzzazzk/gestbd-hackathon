@@ -50,7 +50,7 @@ closest_target_indices = np.argmax(sim_matrix, axis=1)
 
 # 5. Create the new column using the matched names
 # Use the indices to "look up" the name from our target_languages list
-df["tecnologia_nueva"] = [target_languages[i] for i in closest_target_indices]
+df["tecnologia_padre"] = [target_languages[i] for i in closest_target_indices]
 
 # 6. Guardar el nuevo CSV
 output_file = "tecnologia_mapped_ml.csv"
@@ -61,10 +61,10 @@ print(f"\nSuccessfully created new file: '{output_file}'")
 # 7. Explorar los resultados
 print("\n--- Exploring ML-Based Mapping Results (Sample) ---")
 # Show some examples of what was mapped
-sample_mappings = df[df["nombre"] != df["tecnologia_nueva"]]
-print(sample_mappings[["id", "nombre", "tecnologia_nueva"]].head(20).to_markdown(index=False))
+sample_mappings = df[df["nombre"] != df["tecnologia_padre"]]
+print(sample_mappings[["id", "nombre", "tecnologia_padre"]].head(20).to_markdown(index=False))
 
 # Show a specific example
 print("\n--- Checking for 'Java Bytecode' ---")
 java_example = df[df["nombre"] == "Java Bytecode"]
-print(java_example[["id", "nombre", "tecnologia_nueva"]].to_markdown(index=False))
+print(java_example[["id", "nombre", "tecnologia_padre"]].to_markdown(index=False))
