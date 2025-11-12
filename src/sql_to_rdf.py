@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import psycopg2
 from rdflib import Graph, Namespace, Literal
 from rdflib.namespace import RDF, SKOS, XSD
